@@ -1,0 +1,8 @@
+1.	MASTER_GENOPHENO.zip
+ a.	MASTER_GENOPHENO: this file contains the SNP genotypes (centred around zero, with chromosomes followed by positions on the header)
+ b.	crispBLUP_OTF: phenotypes we will be looking at, i.e., fry colour
+ c.	popOL/pop/line are descriptions of population/sample identifiers (we can worry about this later)   
+2.	FRY_SMAP_output.zip
+ a.	haplotypes_c20_f5_m0_discrete_calls_filtered.tsv: this will be the file we use. This contains (filtered) haplotypes. 
+ b.	Other files contains unfiltered haplotype calls and read counts and haplotype frequencies (could also be useful if building GRMs)
+ c.	More info on SMAP can be found in https://ngs-smap.readthedocs.io/en/latest/ 
