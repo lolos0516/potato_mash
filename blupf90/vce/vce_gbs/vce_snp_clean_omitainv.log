@@ -1,0 +1,49 @@
+
+ssgblup_test.par
+     BLUPF90+ ver. 2.48
+
+ Parameter file:             ssgblup_test.par
+ Data file:                  ../renum_gbs/renf90.dat
+ Number of Traits             1
+ Number of Effects            2
+ Position of Observations      1
+ Position of Weights           0
+ Value of Missing Trait/Observation           0
+
+EFFECTS
+ #  type                position (2)        levels   [positions for nested]
+    1  cross-classified       2         3
+    2  cross-classified       3       806
+
+ Residual (co)variance Matrix
+  100.00    
+
+ Random Effect(s)    2
+ Type of Random Effect:      user defined from file
+ User File:                  ../pregs_gbs/Gi                                                                                                                                                                                                                                           
+ trait   effect    (CO)VARIANCES
+  1       2     100.0    
+
+ REMARKS
+  (1) Weight position 0 means no weights utilized
+  (2) Effect positions of 0 for some effects and traits means that such
+      effects are missing for specified traits
+ 
+
+ * The limited number of OpenMP threads = 4
+
+ * BLUPF90+ sparse operations version
+ 
+ * START JOB (BLUPF90): 11-18-2023  14h 02m 28s 161
+ 
+ *** Statistical method from OPTION VCE                 
+ * store solutions and s.e. *** se                  
+* SE for function of (co)variances P G_2_2_1_1+R_1_1
+* SE for function of (co)variances h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)
+ * store accuracy in file: "acc_bf90"            2
+ 
+
+ Options read from parameter file for genomic
+ * SNP format: BLUPF90 standard (text)
+ * SNP file: ../../../output/gbs_clean
+ * SNP Xref file: ../../../output/gbs_clean_XrefID

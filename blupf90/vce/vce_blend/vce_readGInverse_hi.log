@@ -1,0 +1,111 @@
+
+ssgblup.par
+     BLUPF90+ ver. 2.48
+
+ Parameter file:             ssgblup.par
+ Data file:                  ../renum_gbs/renf90.dat
+ Number of Traits             1
+ Number of Effects            2
+ Position of Observations      1
+ Position of Weights           0
+ Value of Missing Trait/Observation           0
+
+EFFECTS
+ #  type                position (2)        levels   [positions for nested]
+    1  cross-classified       2         3
+    2  cross-classified       3       806
+
+ Residual (co)variance Matrix
+  366.00    
+
+ Random Effect(s)    2
+ Type of Random Effect:      additive animal with unknown parent groups and inbreeding
+ Pedigree File:              ../renum_gbs/renadd02.ped                                                                                                                                                                                                                                 
+ trait   effect    (CO)VARIANCES
+  1       2     47.00    
+
+ REMARKS
+  (1) Weight position 0 means no weights utilized
+  (2) Effect positions of 0 for some effects and traits means that such
+      effects are missing for specified traits
+ 
+
+ * The limited number of OpenMP threads = 4
+
+ * BLUPF90+ dense operations version
+ 
+ * START JOB (BLUPF90): 11-18-2023  18h 32m 52s 666
+ 
+ *** Statistical method from OPTION VCE                 
+ * store solutions and s.e. *** se                  
+* SE for function of (co)variances P G_2_2_1_1+R_1_1
+* SE for function of (co)variances h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)
+ * store accuracy in file: "acc_bf90"            2
+ 
+ IJA4 version
+ Data record length =            3
+ # free parameters=           2
+ # parameters=           2
+ # random effects=           1
+ # elements for random effects=           1
+ # maximum (ntrait*random)**2=           1
+ # (co)variance matrices=           1
+
+Read 728 records in 3.53 s.
+
+
+Read 806 additive pedigrees
+
+finished peds (VCE) in 3.55 s.
+
+ rank=         809
+ -2logL =    6399.09060977311       : AIC =    6403.09060977311     
+  In round            1  convergence=   1.17613883056504     
+  delta convergence=   12.2263097252482     
+ new R
+   0.0000    
+ new G
+   22.547    
+ * START ITERATION: 11-18-2023  18h 32m 56s 281
+ -2logL =    1332.00000000000       : AIC =    1336.00000000000     
+  In round            2  convergence=  0.000000000000000E+000
+  delta convergence=  0.000000000000000E+000
+ new R
+   0.0000    
+ new G
+   22.547    
+ * END ITERATION: 11-18-2023  18h 32m 56s 366
+ solutions and s.e. stored in file: "solutions"
+
+Final Estimates
+ Genetic variance(s) for effect  2       
+   22.547    
+ Residual variance(s)
+   0.0000    
+ inverse of AI matrix (Sampling Variance)
+   0.0000       0.0000    
+   0.0000       0.0000    
+ Correlations from inverse of AI matrix
+   0.0000       0.0000    
+   0.0000       0.0000    
+ SE for G
+   0.0000    
+ SE for R
+   0.0000    
+ Sparse inverse of nrm_inverse, elapsed time:    0.09
+* Warning * may need to increase # samples     0     2
+  
+ Sampling variances of covariances function of random effects (n=10000)
+  
+P  - Function: g_2_2_1_1+r_1_1
+  Mean:    22.547    
+  Sample Mean:    22.547    
+  Sample SD:    0.0000    
+  
+h2  - Function: g_2_2_1_1/(g_2_2_1_1+r_1_1)
+  Mean:    1.0000    
+  Sample Mean:    1.0000    
+  Sample SD:    0.0000    
+ elapsed time  3.1250000E-02
+ *** Statistical Method: VCE                 
+ * FINISHED (BLUPF90): 11-18-2023  18h 32m 56s 665

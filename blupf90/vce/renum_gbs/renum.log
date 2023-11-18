@@ -1,0 +1,81 @@
+ RENUMF90 version 1.159
+ renum.par
+ datafile:../../../output/phenotype
+ skip lines:           1
+ traits:           2
+ fields passed:           1           4
+ number of weights=            1
+ in columns:            0 (0 means no weight)
+ R
+   100.0    
+
+ Processing effect  1 of type cross     
+ item_kind=alpha     
+
+ Processing effect  2 of type cross     
+ item_kind=alpha     
+ SNP file name  "../../../output/gbs"
+ Reading (CO)VARIANCES:           1 x           1
+
+ Maximum size of character fields: 20
+
+ Maximum size of record (max_string_readline): 8000
+
+ Maximum number of fields for input file (max_field_readline): 100
+
+ Pedigree search method (ped_search): convention
+
+ Order of pedigree animals (animal_order): default
+
+ Order of UPG (upg_order): default
+
+ Missing observation code (missing): 0
+
+
+ Using prime hash function
+ hash tables for effects set up
+ skip headers: 1 lines
+    BIKINI 40.21321863 0 0
+ first 3 lines of the data file (up to 70 characters)
+    CARA 39.0252013 0 0
+    CASINO 48.73593555 0 0
+    INFINITY 52.67370488 0 0
+ read          728  records
+ table with            3  elements sorted
+ added count
+ Effect group            1  of column            1  with            3  levels
+ table expanded from        10000  to        10000  records
+ table with          728  elements sorted
+ added count
+ Effect group            2  of column            1  with          728  levels
+ table expanded from        10000  to        10000  records
+ wrote statistics in file "renf90.tables"
+
+ Basic statistics for input data  (missing value code is '0')
+ Pos  Min         Max         Mean        SD                 N
+   2    24.615      67.360      48.875      9.7606         728
+
+ random effect with SNPs  2
+ type: animal    
+ file: ../../../output/gbs
+ read SNPs         806  records
+ Effect group            2  of column            1  with          806  levels
+
+ random effect   2
+ type:animal    
+ opened output pedigree file "renadd02.ped"
+ 
+ Number of animals with records                  =          728
+ Number of animals with genotypes                =          806
+ Number of animals with records or genotypes     =          806
+ Number of animals with genotypes and no records =           78
+ Number of parents without records or genotypes  =            0
+ Total number of animals                         =          806
+
+ Wrote cross reference IDs for SNP file "../../../output/gbs_XrefID"
+
+ Wrote parameter file "renf90.par"
+ Wrote renumbered data "renf90.dat" 728 records
+
+ Number of records NOT present in pedigree file: 728
+ Wrote field information "renf90.fields" for 5 fields in data

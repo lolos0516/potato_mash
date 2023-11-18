@@ -1,0 +1,218 @@
+
+ssgblup.par
+     BLUPF90+ ver. 2.48
+
+ Parameter file:             ssgblup.par
+ Data file:                  ../renum_gbs/renf90.dat
+ Number of Traits             1
+ Number of Effects            2
+ Position of Observations      1
+ Position of Weights           0
+ Value of Missing Trait/Observation           0
+
+EFFECTS
+ #  type                position (2)        levels   [positions for nested]
+    1  cross-classified       2         3
+    2  cross-classified       3       806
+
+ Residual (co)variance Matrix
+  100.00    
+
+ Random Effect(s)    2
+ Type of Random Effect:      additive animal with unknown parent groups and inbreeding
+ Pedigree File:              ../renum_gbs/renadd02.ped                                                                                                                                                                                                                                 
+ trait   effect    (CO)VARIANCES
+  1       2     100.0    
+
+ REMARKS
+  (1) Weight position 0 means no weights utilized
+  (2) Effect positions of 0 for some effects and traits means that such
+      effects are missing for specified traits
+ 
+
+ * The limited number of OpenMP threads = 4
+
+ * BLUPF90+ sparse operations version
+ 
+ * START JOB (BLUPF90): 11-18-2023  22h 30m 57s 884
+ 
+ *** Statistical method from OPTION VCE                 
+ * store solutions and s.e. *** se                  
+* SE for function of (co)variances P G_2_2_1_1+R_1_1
+* SE for function of (co)variances h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)
+ * store accuracy in file: "acc_bf90"            2
+ 
+
+ Options read from parameter file for genomic
+ * SNP format: BLUPF90 standard (text)
+ * SNP file: ../../../output/haplotype_clean
+ * SNP Xref file: ../../../output/haplotype_clean_XrefID
+ * Read A22 Inverse (default=.false.)
+ * A22 Inverse file (default "A22i"): ../pregs_gbs_a22/Gi_ascii
+ * ReadGInverse (default=.false.)
+ * G Inverse file (default "Gi"): ../pregs_hap/Gi_ascii
+ * Skip Save GmA22 Inverse matrix (default=.true.)
+ * No Quality Control Checks !!!!! (default .false.):  T
+ * Matrix in Ascii format(default=binary)
+ IJA4 version
+ Data record length =            3
+ # free parameters=           2
+ # parameters=           2
+ # random effects=           1
+ # elements for random effects=           1
+ # maximum (ntrait*random)**2=           1
+ # (co)variance matrices=           1
+
+Read 728 records in 12.20 s,  1351 nonzeroes
+
+
+Read 806 additive pedigrees
+ 
+ *--------------------------------------------------------------*
+ *                 Genomic Library: Dist Version 1.308          *
+ *                                                              *
+ *             Optimized OpenMP Version -  4 threads            *
+ *                                                              *
+ *  Modified relationship matrix (H) created for effect:   2    *
+ *--------------------------------------------------------------*
+ 
+ Read 806 animals from pedigree file: "C:\Users\lzhang\OneDrive - AbacusBio Ltd\Project_internal\Potato mash\blupf90\vce\renum_gbs\renadd02.ped"
+ Number of Genotyped Animals: 702
+ Reading A22-inverse from file: "../pregs_gbs_a22/Gi_ascii"
+                246753 elements read from: ../pregs_gbs_a22/Gi_ascii
+
+ ----------------------
+  Final A22 Inv Matrix 
+ ----------------------
+ 
+ Statistic of Inv. Rel. Matrix A22
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     4.612     0.530   100.000    99.800
+     Off-diagonal          492102     0.126    -9.858     0.545     0.008
+ 
+ Reading G-inverse from file: "../pregs_hap/Gi_ascii"
+                246753 elements read from: ../pregs_hap/Gi_ascii
+
+ --------------------------
+  Final Genomic Inv Matrix 
+ --------------------------
+ 
+ Statistic of Inv. Genomic Matrix
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     7.294     4.653    41.938    11.591
+     Off-diagonal          492102     0.130   -37.990     2.365     0.100
+ 
+
+ Check for diagonal of Inverse Genomic - Inverse of pedigree relationship matrix
+
+ Number of genotypes with G^ii < A22^ii: 10
+ Genotype number, renumber id and Gi-A22i print in file: "Check_Diagonal_GimA22i"
+
+ ------------------------------
+  Final G Inv - A22 Inv Matrix 
+ ------------------------------
+ 
+ Statistic of Inv. Genomic - A22 Matrix
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     2.682   -94.681    33.565   109.400
+     Off-diagonal          492102     0.004   -31.721     2.646     0.088
+ 
+
+*--------------------------------------------------*
+* Setup Genomic Done !!!, elapsed time:      6.665 *
+*--------------------------------------------------*
+
+ wGimA22i   1.00000000000000     
+hash matrix increased from            8192 to           16384 % filled:     0.8000
+hash matrix increased from           16384 to           32768 % filled:     0.8000
+hash matrix increased from           32768 to           65536 % filled:     0.8000
+hash matrix increased from           65536 to          131072 % filled:     0.8000
+hash matrix increased from          131072 to          262144 % filled:     0.8000
+hash matrix increased from          262144 to          524288 % filled:     0.8000
+hash matrix increased from            8192 to           16384 % filled:     0.8000
+hash matrix increased from           16384 to           32768 % filled:     0.8000
+hash matrix increased from           32768 to           65536 % filled:     0.8000
+hash matrix increased from           65536 to          131072 % filled:     0.8000
+hash matrix increased from          131072 to          262144 % filled:     0.8000
+hash matrix increased from          262144 to          524288 % filled:     0.8000
+
+finished peds (VCE) in 19.77 s,  247480 nonzeroes
+
+ rank=         220
+               **************
+               **** FSPAK ***
+               **************
+               MPE / IM / MAE
+                   Jun 1994
+
+              SPARSE STATISTICS
+      DIMENSION OF MATRIX     =                      809
+      RANK                    =                      220
+      STORAGE AVAILABLE       =                  1244349
+      MAXIMUM NEEDED          =                  1244349
+      NZE IN UPPER TRIANGULAR =                   248289
+      NZE IN FACTOR           =                   246671
+      NO. OF CALLS NUM FACT   =                        1
+      NO. OF CALLS SOLVE      =                        1
+      NO. OF CALLS SPARS SOLV =                        0
+      NO. OF CALLS DET / LDET =                        1
+      NO. OF CALLS SPARS INV  =                        1
+      TOTAL CPU TIME IN FSPAK =                 2.015625
+      TIME FOR FINDING ORDER  =                 0.062500
+      TIME FOR SYMBOLIC FAC   =                 0.578125
+      TIME FOR NUMERICAL FAC  =                 0.125000
+      TIME FOR SOLVE          =                 0.062500
+      TIME FOR SPARSE SOLVE   =                 0.000000
+      TIME FOR SPARSE INVERSE =                 1.187500
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =   -75873654.0529719       : AIC =   -75873650.0529719     
+  In round            1  convergence=  0.000000000000000E+000
+  delta convergence=  0.000000000000000E+000
+ new R
+   0.0000    
+ new G
+   100.00    
+ * START ITERATION: 11-18-2023  22h 31m 19s 085
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4149.83217648919       : AIC =    4153.83217648919     
+  In round            2  convergence=  0.000000000000000E+000
+  delta convergence=  0.000000000000000E+000
+ new R
+   0.0000    
+ new G
+   100.00    
+ * END ITERATION: 11-18-2023  22h 31m 20s 544
+ solutions and s.e. stored in file: "solutions"
+
+Final Estimates
+ Genetic variance(s) for effect  2       
+   100.00    
+ Residual variance(s)
+   0.0000    
+ inverse of AI matrix (Sampling Variance)
+   0.0000       0.0000    
+   0.0000       0.0000    
+ Correlations from inverse of AI matrix
+   0.0000       0.0000    
+   0.0000       0.0000    
+ SE for G
+   0.0000    
+ SE for R
+   0.0000    
+ Sparse inverse of nrm_inverse, elapsed time:    1.11
+* Warning * may need to increase # samples     0     2
+  
+ Sampling variances of covariances function of random effects (n=10000)
+  
+P  - Function: g_2_2_1_1+r_1_1
+  Mean:    100.00    
+  Sample Mean:    100.00    
+  Sample SD:    0.0000    
+  
+h2  - Function: g_2_2_1_1/(g_2_2_1_1+r_1_1)
+  Mean:    1.0000    
+  Sample Mean:    1.0000    
+  Sample SD:    0.0000    
+ elapsed time  6.2500000E-02
+ *** Statistical Method: VCE                 
+ * FINISHED (BLUPF90): 11-18-2023  22h 31m 22s 396

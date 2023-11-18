@@ -1,0 +1,43 @@
+# BLUPF90 parameter file created by RENUMF90
+DATAFILE
+ ../renum_gbs/renf90.dat
+NUMBER_OF_TRAITS
+           1
+NUMBER_OF_EFFECTS
+           2
+OBSERVATION(S)
+    1
+WEIGHT(S)
+ 
+EFFECTS: POSITIONS_IN_DATAFILE NUMBER_OF_LEVELS TYPE_OF_EFFECT[EFFECT NESTED]
+ 2         3 cross 
+ 3       806 cross 
+RANDOM_RESIDUAL VALUES
+   100.00    
+ RANDOM_GROUP
+     2
+ RANDOM_TYPE # add_an_upginb
+ add_an_upginb #user_file # http://nce.ads.uga.edu/wiki/doku.php?id=user_defined_files_for_covariances_of_random_effects
+ FILE #..renum_gbs/renadd02.ped #../pregs_gbs/Gi
+ ../renum_gbs/renadd02.ped #../pregs_gbs/Gi
+(CO)VARIANCES
+   100.00    
+OPTION SNP_file ../../../output/haplotype_clean # gbs_clean
+OPTION method VCE
+OPTION sol se
+OPTION no_quality_control
+#OPTION omit_ainv
+#OPTION AlphaBeta 0.99 0.01 # G = 1*G+0*I GBLUP default 0.95 0.05
+#OPTION TauOmega 1 1 # default 1 1
+#OPTION tunedG 0 # GBLUP
+OPTION saveAscii
+#OPTION saveGInverse
+OPTION skipGimA22i
+#OPTION saveA22Inverse
+#OPTION saveAInverse
+#OPTION createGInverse
+OPTION readGInverse ../pregs_hap/Gi_ascii #../Hinv_manual #../pregs_gbs/Gi
+OPTION readA22Inverse ../pregs_gbs_a22/Gi_ascii
+OPTION store_accuracy 2
+OPTION se_covar_function P G_2_2_1_1+R_1_1
+OPTION se_covar_function h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)

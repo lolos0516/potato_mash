@@ -1,0 +1,32 @@
+# BLUPF90 parameter file created by RENUMF90
+DATAFILE
+ renf90.dat
+NUMBER_OF_TRAITS
+           1
+NUMBER_OF_EFFECTS
+           2
+OBSERVATION(S)
+    1
+WEIGHT(S)
+ 
+EFFECTS: POSITIONS_IN_DATAFILE NUMBER_OF_LEVELS TYPE_OF_EFFECT[EFFECT NESTED]
+ 2         3 cross 
+ 3       806 cross 
+RANDOM_RESIDUAL VALUES
+   100.00    
+ RANDOM_GROUP
+     2
+ RANDOM_TYPE
+ add_an_upginb
+ FILE
+renadd02.ped                                                                    
+(CO)VARIANCES
+   100.00    
+OPTION SNP_file ../../../output/gbs
+OPTION method VCE
+OPTION AlphaBeta 1.00 0.00 # G = 1*G+0*I GBLUP
+OPTION tunedG 0 # GBLUP
+OPTION callrate 0.7
+OPTION minfreq 0.01
+OPTION saveCleanSNPs
+OPTION createGInverse 1
