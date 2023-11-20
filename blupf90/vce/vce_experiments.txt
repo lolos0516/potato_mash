@@ -15,7 +15,7 @@ Final Estimates
    0
 Rank 625 (wrong?)
 
-# use ped, gbs_clean, OPTION readGInverse ../pregs_gbs/Gi, OPTION AlphaBeta 0.99 30.01 
+# use ped, gbs_clean, OPTION readGInverse ../pregs_gbs/Gi, OPTION AlphaBeta 0.99 0.01 
 # Gi need to be compatible to snp file
  Genetic variance(s) for effect  2       M
    342.15    M

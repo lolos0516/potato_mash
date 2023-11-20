@@ -1,0 +1,33 @@
+# BLUPF90 parameter file created by RENUMF90
+DATAFILE
+ ../renum_gbs/renf90.dat.reduce
+NUMBER_OF_TRAITS
+           1
+NUMBER_OF_EFFECTS
+           2
+OBSERVATION(S)
+    1
+WEIGHT(S)
+ 
+EFFECTS: POSITIONS_IN_DATAFILE NUMBER_OF_LEVELS TYPE_OF_EFFECT[EFFECT NESTED]
+ 2         2 cross 
+ 3       810 cross 
+RANDOM_RESIDUAL VALUES
+   251.82    
+ RANDOM_GROUP
+     2
+ RANDOM_TYPE #add_an_upginb
+ user_file # http://nce.ads.uga.edu/wiki/doku.php?id=user_defined_files_for_covariances_of_random_effects
+ FILE #renum_gbs/renadd02.ped
+ ../pregs_gbs/Gi
+(CO)VARIANCES
+   194.13    
+#OPTION SNP_file ../../../output/gbs
+#OPTION method VCE
+OPTION sol se
+OPTION no_quality_control
+OPTION AlphaBeta 1.00 0.00 # G = 1*G+0*I GBLUP default 0.95 0.05
+OPTION TauOmega 1 1 # default 1 1
+OPTION tunedG 0 # GBLUP
+OPTION readA22 ../a22_gbs
+OPTION readG ../pregs_hap/Gi

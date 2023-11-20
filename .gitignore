@@ -11,7 +11,10 @@ data/*
 output/*
 blupf90/**/H*
 blupf90/**/fspak*
-blupf90/**/G*
+blupf90/**/Gen*
+blupf90/**/Gini
+blupf90/**/Gim*
+blupf90/**/Gi_*
 blupf90/**/freq*
 blupf90/**/A*
 blupf90/**/solution
@@ -20,3 +23,4 @@ blupf90/**/freq*
 blupf90/**/sum2pq*
 blupf90/**/*.ord
 blupf90/**/fort.*
+blupf90/**/diag_nrm
