@@ -1,6 +1,6 @@
- BLUPF90+ ver. 2.48
- In round          8 convergence =  0.684221179595E-12
- delta convergence =  0.192290171084E-03
+ BLUPF90+ ver. 2.51
+ In round          8 convergence =  0.684221288711E-12
+ delta convergence =  0.192290191877E-03
 -2logL =        6316.0768     : AIC =        6320.0768    
 Genetic variance(s) for effect  2       
    342.15    

@@ -28,13 +28,14 @@ OPTION sol se
 OPTION no_quality_control
 OPTION omit_ainv
 OPTION AlphaBeta .99 0.01 # G = 1*G+0*I GBLUP default 0.95 0.05
-OPTION TauOmega 1 1 # default 1 1
+OPTION TauOmega 1 0 # default 1 1
 OPTION tunedG 0 # GBLUP
 #OPTION readA22Inverse ../pregs_gbs_a22/Gi
-#OPTION readGInverse ../pregs_hap/Gi
+OPTION readGInverse ../pregs_hap/Gi
 OPTION store_accuracy 2
 OPTION se_covar_function P G_2_2_1_1+R_1_1
 OPTION se_covar_function h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)
 OPTION saveAscii
-OPTION saveA22Inverse
-OPTION saveGInverse
+#OPTION saveGOrig # same id order as Gi
+#OPTION saveAinvOrig
+#OPTION saveGInverse

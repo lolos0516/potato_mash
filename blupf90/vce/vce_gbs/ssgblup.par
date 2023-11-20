@@ -26,9 +26,9 @@ OPTION SNP_file ../../../output/gbs_clean
 OPTION method VCE
 OPTION sol se
 OPTION no_quality_control
-#OPTION omit_ainv
+OPTION omit_ainv
 OPTION AlphaBeta 0.99 0.01 # G = 1*G+0*I GBLUP default 0.95 0.05
-OPTION TauOmega 1 1 # default 1 1
+OPTION TauOmega 1 0 # default 1 0
 OPTION tunedG 0 # GBLUP
 OPTION saveAscii
 #OPTION saveGInverse
@@ -36,6 +36,7 @@ OPTION skipGimA22i
 #OPTION saveA22Inverse
 #OPTION saveAInverse
 #OPTION createGInverse
+OPTION readOrigId
 OPTION readGInverse ../pregs_gbs/Gi
 OPTION store_accuracy 2
 OPTION se_covar_function P G_2_2_1_1+R_1_1

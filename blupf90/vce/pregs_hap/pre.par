@@ -24,6 +24,7 @@ RANDOM_RESIDUAL VALUES
    100.00    
 OPTION SNP_file ../../../output/haplotype
 OPTION AlphaBeta .99 0.01 # G = 1*G+0*I GBLUP
+OPTION TauOmega 1.0 0.0
 OPTION tunedG 0 # GBLUP
 OPTION callrate 0.70
 OPTION callrateAnim 0.00 # cause G non positive define
@@ -31,12 +32,11 @@ OPTION callrateAnim 0.00 # cause G non positive define
 #OPTION no_quality_control
 OPTION monomorphic 0
 OPTION saveCleanSNPs
-#OPTION method VCE
 OPTION saveAscii
 OPTION saveG
 OPTION saveGInverse
 OPTION skipGimA22i
-#OPTION createGInverse 1
-#OPTOIN saveGOrig G_gbs_orig
-#OPTION createA22Inverse 0
-#OPTION createGimA22i 0
+OPTION saveGOrig # same id order as Gi
+OPTION saveAinvOrig
+OPTION saveGInverse
+

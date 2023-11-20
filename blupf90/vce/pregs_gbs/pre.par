@@ -23,6 +23,7 @@ RANDOM_RESIDUAL VALUES
 (CO)VARIANCES
    100.00    
 OPTION SNP_file ../../../output/gbs
+OPTION TauOmega 1.0 0.0
 OPTION AlphaBeta 0.99 0.01 # G = 1*G+0*I GBLUP
 OPTION tunedG 0 # GBLUP
 #OPTION no_quality_control
@@ -32,10 +33,14 @@ OPTION minfreq 0.05
 OPTION saveCleanSNPs
 #OPTION method VCE
 OPTION saveAscii
-OPTION saveG all
+#OPTION saveG all
+#OPTION readOrigId
+OPTION saveGOrig
+OPTION saveAinvOrig
+OPTION saveA22InverseOrig
+OPTION saveGInverseOrig
 OPTION skipGimA22i
 #OPTION createGInverse 1
 #OPTION saveA22Inverse
-#OPTION saveAinv
 #OPTION createA22Inverse 1
 #OPTION createGimA22i 0
