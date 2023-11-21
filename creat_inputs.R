@@ -191,4 +191,8 @@ ped <- df_gbs_sub %>%
 
 fwrite(ped, "output/ped", sep = " ", quote = F, col.names = T, row.names = F, na = 0)
 
+ped_test <- ped %>% 
+  mutate(sire = "T999", dam = "T998")
+data.table::fwrite(ped_test, "output/ped_test", sep = " ", quote = F, col.names = T, row.names = F, na = 0)
+
 rm(df)

@@ -1,6 +1,6 @@
 
 ssgblup.par
-     preGSf90 ver. 1.24
+     BLUPF90+ ver. 2.51
 
  Parameter file:             ssgblup.par
  Data file:                  ../renum_gbs/renf90.dat
@@ -29,8 +29,798 @@ EFFECTS
   (2) Effect positions of 0 for some effects and traits means that such
       effects are missing for specified traits
  
- * omit A-inverse (default=.false.): .true.
 
- ***** OPTION NOT valid for this program !!!! 
-       "sol"
-       Check for typing errors (e.g. upper/lower cases) in the key
+ * The limited number of OpenMP threads = 4
+
+ * BLUPF90+ sparse operations version
+ 
+ * START JOB (BLUPF90): 11-21-2023  09h 31m 57s 919
+ 
+ *** Statistical method from OPTION VCE                 
+ * store solutions and s.e. *** se                  
+* SE for function of (co)variances P G_2_2_1_1+R_1_1
+* SE for function of (co)variances h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)
+ * store accuracy in file: "acc_bf90"            2
+ * omit A-inverse (default=.false.): .true.
+ 
+
+ Options read from parameter file for genomic
+ * SNP format: BLUPF90 standard (text)
+ * SNP file: ../../../output/haplotype_clean
+ * SNP Xref file: ../../../output/haplotype_clean_XrefID
+ * ReadGInverse (default=.false.)
+ * G Inverse file (default "Gi"): ../pregs_hap/Gi
+ * No Quality Control Checks !!!!! (default .false.):  T
+ * Create a tuned G (default = 2): 0
+ * AlphaBeta defaults alpha=0.95, beta=0.05) :  0.99  0.01
+ * TauOmega (defaults tau=1.0, omega=1.0) :  1.00  0.00
+ * Matrix in Ascii format(default=binary)
+ IJA4 version
+ Data record length =            3
+ # free parameters=           2
+ # parameters=           2
+ # random effects=           1
+ # elements for random effects=           1
+ # maximum (ntrait*random)**2=           1
+ # (co)variance matrices=           1
+
+Read 728 records in 8.05 s,  1351 nonzeroes
+
+
+Read 806 additive pedigrees
+ 
+ *--------------------------------------------------------------*
+ *                 Genomic Library: Dist Version 1.313          *
+ *                                                              *
+ *             Optimized OpenMP Version -   4 threads            *
+ *                                                              *
+ *  Modified relationship matrix (H) created for effect:   2    *
+ *--------------------------------------------------------------*
+ 
+ Read 806 animals from pedigree file: "C:\Users\lzhang\OneDrive - AbacusBio Ltd\Project_internal\Potato mash\blupf90\vce\renum_gbs\renadd02.ped"
+ Number of Genotyped Animals: 702
+
+ Creating A22 
+    Extracting subset of: 702 pedigrees from: 806 ...elapsed time:     0.0000
+    Calculating A22 Matrix by Colleau OpenMP...elapsed time: .0100
+    Numbers of threads=1 4
+
+ ------------------------------
+  Final Pedigree-Based Matrix 
+ ------------------------------
+ 
+ Statistic of Rel. Matrix A22
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     1.000     1.000     1.000     0.000
+     Off-diagonal          492102     0.000     0.000     0.000     0.000
+ 
+
+ Creating A22-inverse 
+    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.0853
+ 
+ Adjusting A22-inverse : Omega * A22-inverse      0.000
+
+ ----------------------
+  Final A22 Inv Matrix 
+ ----------------------
+ 
+ Statistic of Inv. Rel. Matrix A22
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     0.000     0.000     0.000     0.000
+     Off-diagonal          492102     0.000     0.000     0.000     0.000
+ 
+ Reading G-inverse from file: "../pregs_hap/Gi"
+                246753 elements read from: ../pregs_hap/Gi
+
+ --------------------------
+  Final Genomic Inv Matrix 
+ --------------------------
+ 
+ Statistic of Inv. Genomic Matrix
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     7.294     4.653    41.938    11.591
+     Off-diagonal          492102     0.130   -37.990     2.365     0.100
+ 
+
+ Check for diagonal of Inverse Genomic - Inverse of pedigree relationship matrix
+
+
+ ------------------------------
+  Final G Inv - A22 Inv Matrix 
+ ------------------------------
+ 
+ Statistic of Inv. Genomic - A22 Matrix
+                                N      Mean       Min       Max       Var
+     Diagonal                 702     7.294     4.653    41.938    11.591
+     Off-diagonal          492102     0.130   -37.990     2.365     0.100
+ 
+
+*--------------------------------------------------*
+* Setup Genomic Done !!!, elapsed time:      5.517 *
+*--------------------------------------------------*
+
+ wGimA22i   1.00000000000000     
+hash matrix increased from            8192 to           16384 % filled:     0.8000
+hash matrix increased from           16384 to           32768 % filled:     0.8000
+hash matrix increased from           32768 to           65536 % filled:     0.8000
+hash matrix increased from           65536 to          131072 % filled:     0.8000
+hash matrix increased from          131072 to          262144 % filled:     0.8000
+hash matrix increased from          262144 to          524288 % filled:     0.8000
+hash matrix increased from            8192 to           16384 % filled:     0.8000
+hash matrix increased from           16384 to           32768 % filled:     0.8000
+hash matrix increased from           32768 to           65536 % filled:     0.8000
+hash matrix increased from           65536 to          131072 % filled:     0.8000
+hash matrix increased from          131072 to          262144 % filled:     0.8000
+hash matrix increased from          262144 to          524288 % filled:     0.8000
+
+finished peds (VCE) in 14.89 s,  247431 nonzeroes
+
+ rank=         760
+               **************
+               **** FSPAK ***
+               **************
+               MPE / IM / MAE
+                   Jun 1994
+
+              SPARSE STATISTICS
+      DIMENSION OF MATRIX     =                      809
+      RANK                    =                      760
+      STORAGE AVAILABLE       =                  1244349
+      MAXIMUM NEEDED          =                  1244349
+      NZE IN UPPER TRIANGULAR =                   248289
+      NZE IN FACTOR           =                   246671
+      NO. OF CALLS NUM FACT   =                        1
+      NO. OF CALLS SOLVE      =                        1
+      NO. OF CALLS SPARS SOLV =                        0
+      NO. OF CALLS DET / LDET =                        1
+      NO. OF CALLS SPARS INV  =                        1
+      TOTAL CPU TIME IN FSPAK =                 1.875000
+      TIME FOR FINDING ORDER  =                 0.015625
+      TIME FOR SYMBOLIC FAC   =                 0.406250
+      TIME FOR NUMERICAL FAC  =                 0.218750
+      TIME FOR SOLVE          =                 0.062500
+      TIME FOR SPARSE SOLVE   =                 0.000000
+      TIME FOR SPARSE INVERSE =                 1.140625
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    6644.77863067560       : AIC =    6648.77863067560     
+  In round            1  convergence=  1.258084005517794E-002
+  delta convergence=   41.2668510483235     
+ new R
+   172.45    
+ new G
+   89.915    
+ * START ITERATION: 11-21-2023  09h 32m 14s 565
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    6433.93523718081       : AIC =    6437.93523718081     
+  In round            2  convergence=   167.235097164592     
+  delta convergence=   91.2211836404005     
+ new R
+   271.43    
+ new G
+   6.4539    
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    6201.05860761507       : AIC =    6205.05860761507     
+  In round            3  convergence=  0.254033308750653     
+  delta convergence=   36.9929697993094     
+ new R
+   343.25    
+ new G
+   4.2911    
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    6135.09076032996       : AIC =    6139.09076032996     
+  In round            4  convergence=  0.770095872670855     
+  delta convergence=   12.2567872986094     
+ new R
+   365.76    
+ new G
+   2.2855    
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    6071.73566820384       : AIC =    6075.73566820384     
+  In round            5  convergence=   2.85548511618347     
+  delta convergence=   3.71130369095096     
+ new R
+   371.75    
+ new G
+  0.84967    
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5971.36835817906       : AIC =    5975.36835817906     
+  In round            6  convergence=   294.281586344579     
+  delta convergence=   1.95518246835867     
+ new R
+   374.86    
+ new G
+  0.46802E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5671.36364659324       : AIC =    5675.36364659324     
+  In round            7  convergence=  2.190493266074797E-002
+  delta convergence=  0.495895003877077     
+ new R
+   375.84    
+ new G
+  0.40768E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5657.01778954778       : AIC =    5661.01778954778     
+  In round            8  convergence=  2.191070226922767E-002
+  delta convergence=  4.950142979423834E-002
+ new R
+   375.93    
+ new G
+  0.35512E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5642.67138945413       : AIC =    5646.67138945413     
+  In round            9  convergence=  2.191550480395389E-002
+  delta convergence=  1.250537418920457E-002
+ new R
+   375.96    
+ new G
+  0.30932E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5628.32226965921       : AIC =    5632.32226965921     
+  In round           10  convergence=  2.191967453499436E-002
+  delta convergence=  8.445618921254953E-003
+ new R
+   375.97    
+ new G
+  0.26943E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5613.97076526335       : AIC =    5617.97076526335     
+  In round           11  convergence=  2.192330709236325E-002
+  delta convergence=  7.162230074671213E-003
+ new R
+   375.98    
+ new G
+  0.23469E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5599.61718280091       : AIC =    5603.61718280091     
+  In round           12  convergence=  2.192647233641184E-002
+  delta convergence=  6.224083643227616E-003
+ new R
+   375.99    
+ new G
+  0.20442E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5585.26178960655       : AIC =    5589.26178960655     
+  In round           13  convergence=  2.192923027996143E-002
+  delta convergence=  5.420987720614230E-003
+ new R
+   376.00    
+ new G
+  0.17805E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5570.90481871423       : AIC =    5574.90481871423     
+  In round           14  convergence=  2.193163321213596E-002
+  delta convergence=  4.722363303237726E-003
+ new R
+   376.00    
+ new G
+  0.15508E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5556.54647323588       : AIC =    5560.54647323588     
+  In round           15  convergence=  2.193372673567376E-002
+  delta convergence=  4.113744921248366E-003
+ new R
+   376.01    
+ new G
+  0.13508E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5542.18693018673       : AIC =    5546.18693018673     
+  In round           16  convergence=  2.193555061828422E-002
+  delta convergence=  3.583490012136696E-003
+ new R
+   376.02    
+ new G
+  0.11765E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5527.82634382603       : AIC =    5531.82634382603     
+  In round           17  convergence=  2.193713953391067E-002
+  delta convergence=  3.121522649923965E-003
+ new R
+   376.02    
+ new G
+  0.10247E-01
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5513.46484857252       : AIC =    5517.46484857252     
+  In round           18  convergence=  2.193852371099636E-002
+  delta convergence=  2.719063086605939E-003
+ new R
+   376.02    
+ new G
+  0.89255E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5499.10256154949       : AIC =    5503.10256154949     
+  In round           19  convergence=  2.193972949919578E-002
+  delta convergence=  2.368457180011890E-003
+ new R
+   376.03    
+ new G
+  0.77740E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5484.73958480456       : AIC =    5488.73958480456     
+  In round           20  convergence=  2.194077986466169E-002
+  delta convergence=  2.063032611768783E-003
+ new R
+   376.03    
+ new G
+  0.67710E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5470.37600724586       : AIC =    5474.37600724586     
+  In round           21  convergence=  2.194169482266018E-002
+  delta convergence=  1.796973553600086E-003
+ new R
+   376.03    
+ new G
+  0.58975E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5456.01190633072       : AIC =    5460.01190633072     
+  In round           22  convergence=  2.194249181530685E-002
+  delta convergence=  1.565211238531561E-003
+ new R
+   376.04    
+ new G
+  0.51366E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5441.64734953823       : AIC =    5445.64734953823     
+  In round           23  convergence=  2.194318604131546E-002
+  delta convergence=  1.363328329763023E-003
+ new R
+   376.04    
+ new G
+  0.44739E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5427.28239565274       : AIC =    5431.28239565274     
+  In round           24  convergence=  2.194379074374275E-002
+  delta convergence=  1.187475576039271E-003
+ new R
+   376.04    
+ new G
+  0.38966E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5412.91709588281       : AIC =    5416.91709588281     
+  In round           25  convergence=  2.194431746098196E-002
+  delta convergence=  1.034298872393416E-003
+ new R
+   376.04    
+ new G
+  0.33939E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5398.55149483656       : AIC =    5402.55149483656     
+  In round           26  convergence=  2.194477624578121E-002
+  delta convergence=  9.008758083944851E-004
+ new R
+   376.04    
+ new G
+  0.29560E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5384.18563137150       : AIC =    5388.18563137150     
+  In round           27  convergence=  2.194517585609538E-002
+  delta convergence=  7.846602219324095E-004
+ new R
+   376.04    
+ new G
+  0.25746E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5369.81953933533       : AIC =    5373.81953933533     
+  In round           28  convergence=  2.194552392166809E-002
+  delta convergence=  6.834338048544918E-004
+ new R
+   376.05    
+ new G
+  0.22424E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5355.45324821152       : AIC =    5359.45324821152     
+  In round           29  convergence=  2.194582708911660E-002
+  delta convergence=  5.952640199673136E-004
+ new R
+   376.05    
+ new G
+  0.19531E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5341.08678368126       : AIC =    5345.08678368126     
+  In round           30  convergence=  2.194609114847249E-002
+  delta convergence=  5.184673048064462E-004
+ new R
+   376.05    
+ new G
+  0.17011E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5326.72016811417       : AIC =    5330.72016811417     
+  In round           31  convergence=  2.194632114345912E-002
+  delta convergence=  4.515770602526806E-004
+ new R
+   376.05    
+ new G
+  0.14816E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5312.35342099451       : AIC =    5316.35342099451     
+  In round           32  convergence=  2.194652146759409E-002
+  delta convergence=  3.933157011299330E-004
+ new R
+   376.05    
+ new G
+  0.12904E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5297.98655929364       : AIC =    5301.98655929364     
+  In round           33  convergence=  2.194669594794869E-002
+  delta convergence=  3.425703250990232E-004
+ new R
+   376.05    
+ new G
+  0.11239E-02
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5283.61959779390       : AIC =    5287.61959779390     
+  In round           34  convergence=  2.194684791810930E-002
+  delta convergence=  2.983715237818626E-004
+ new R
+   376.05    
+ new G
+  0.97890E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5269.25254937057       : AIC =    5273.25254937057     
+  In round           35  convergence=  2.194698028181240E-002
+  delta convergence=  2.598748746368383E-004
+ new R
+   376.05    
+ new G
+  0.85259E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5254.88542523833       : AIC =    5258.88542523833     
+  In round           36  convergence=  2.194709556828233E-002
+  delta convergence=  2.263448359596171E-004
+ new R
+   376.05    
+ new G
+  0.74258E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5240.51823516486       : AIC =    5244.51823516486     
+  In round           37  convergence=  2.194719598056567E-002
+  delta convergence=  1.971407187512848E-004
+ new R
+   376.05    
+ new G
+  0.64676E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5226.15098765806       : AIC =    5230.15098765806     
+  In round           38  convergence=  2.194728343755969E-002
+  delta convergence=  1.717044749083045E-004
+ new R
+   376.05    
+ new G
+  0.56331E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5211.78369012799       : AIC =    5215.78369012799     
+  In round           39  convergence=  2.194735961063292E-002
+  delta convergence=  1.495500237646617E-004
+ new R
+   376.05    
+ new G
+  0.49063E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5197.41634902873       : AIC =    5201.41634902873     
+  In round           40  convergence=  2.194742595557202E-002
+  delta convergence=  1.302539708223227E-004
+ new R
+   376.05    
+ new G
+  0.42732E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5183.04896998187       : AIC =    5187.04896998187     
+  In round           41  convergence=  2.194748374036702E-002
+  delta convergence=  1.134475549401018E-004
+ new R
+   376.05    
+ new G
+  0.37218E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5168.68155788367       : AIC =    5172.68155788367     
+  In round           42  convergence=  2.194753406943117E-002
+  delta convergence=  9.880958863920502E-005
+ new R
+   376.05    
+ new G
+  0.32416E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5154.31411699835       : AIC =    5158.31411699835     
+  In round           43  convergence=  2.194757790470810E-002
+  delta convergence=  8.606027740703150E-005
+ new R
+   376.05    
+ new G
+  0.28233E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5139.94665104050       : AIC =    5143.94665104050     
+  In round           44  convergence=  2.194761608403006E-002
+  delta convergence=  7.495596833873228E-005
+ new R
+   376.05    
+ new G
+  0.24590E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5125.57916324508       : AIC =    5129.57916324508     
+  In round           45  convergence=  2.194764933716191E-002
+  delta convergence=  6.528441594840410E-005
+ new R
+   376.05    
+ new G
+  0.21417E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5111.21165642970       : AIC =    5115.21165642970     
+  In round           46  convergence=  2.194767829968196E-002
+  delta convergence=  5.686075334730565E-005
+ new R
+   376.05    
+ new G
+  0.18654E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5096.84413304850       : AIC =    5100.84413304850     
+  In round           47  convergence=  2.194770352520009E-002
+  delta convergence=  4.952398938164505E-005
+ new R
+   376.05    
+ new G
+  0.16247E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5082.47659523893       : AIC =    5086.47659523893     
+  In round           48  convergence=  2.194772549588528E-002
+  delta convergence=  4.313387781357436E-005
+ new R
+   376.05    
+ new G
+  0.14151E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5068.10904486275       : AIC =    5072.10904486275     
+  In round           49  convergence=  2.194774463169408E-002
+  delta convergence=  3.756827825370232E-005
+ new R
+   376.05    
+ new G
+  0.12325E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5053.74148354145       : AIC =    5057.74148354145     
+  In round           50  convergence=  2.194776129840773E-002
+  delta convergence=  3.272080661607086E-005
+ new R
+   376.05    
+ new G
+  0.10734E-03
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5039.37391268715       : AIC =    5043.37391268715     
+  In round           51  convergence=  2.194777581460713E-002
+  delta convergence=  2.849879743919357E-005
+ new R
+   376.05    
+ new G
+  0.93493E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5025.00633353004       : AIC =    5029.00633353004     
+  In round           52  convergence=  2.194778845777291E-002
+  delta convergence=  2.482156113736443E-005
+ new R
+   376.05    
+ new G
+  0.81430E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    5010.63874714131       : AIC =    5014.63874714131     
+  In round           53  convergence=  2.194779946958531E-002
+  delta convergence=  2.161879606738585E-005
+ new R
+   376.05    
+ new G
+  0.70922E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4996.27115445413       : AIC =    5000.27115445413     
+  In round           54  convergence=  2.194780906052517E-002
+  delta convergence=  1.882928992207803E-005
+ new R
+   376.05    
+ new G
+  0.61771E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4981.90355628121       : AIC =    4985.90355628121     
+  In round           55  convergence=  2.194781741394148E-002
+  delta convergence=  1.639971745234188E-005
+ new R
+   376.05    
+ new G
+  0.53801E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4967.53595333039       : AIC =    4971.53595333039     
+  In round           56  convergence=  2.194782468950034E-002
+  delta convergence=  1.428363314371080E-005
+ new R
+   376.05    
+ new G
+  0.46859E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4953.16834621809       : AIC =    4957.16834621809     
+  In round           57  convergence=  2.194783102628405E-002
+  delta convergence=  1.244059049613023E-005
+ new R
+   376.05    
+ new G
+  0.40812E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4938.80073548136       : AIC =    4942.80073548136     
+  In round           58  convergence=  2.194783654542438E-002
+  delta convergence=  1.083536014938202E-005
+ new R
+   376.05    
+ new G
+  0.35546E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4924.43312158775       : AIC =    4928.43312158775     
+  In round           59  convergence=  2.194784135241765E-002
+  delta convergence=  9.437252387102579E-006
+ new R
+   376.05    
+ new G
+  0.30960E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4910.06550494479       : AIC =    4914.06550494479     
+  In round           60  convergence=  2.194784553915863E-002
+  delta convergence=  8.219548246815963E-006
+ new R
+   376.05    
+ new G
+  0.26965E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4895.69788590708       : AIC =    4899.69788590708     
+  In round           61  convergence=  2.194784918567955E-002
+  delta convergence=  7.158956609581110E-006
+ new R
+   376.05    
+ new G
+  0.23486E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4881.33026478358       : AIC =    4885.33026478358     
+  In round           62  convergence=  2.194785236168287E-002
+  delta convergence=  6.235222677104830E-006
+ new R
+   376.05    
+ new G
+  0.20455E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4866.96264184355       : AIC =    4870.96264184355     
+  In round           63  convergence=  2.194785512787608E-002
+  delta convergence=  5.430687339020377E-006
+ new R
+   376.05    
+ new G
+  0.17816E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4852.59501732137       : AIC =    4856.59501732137     
+  In round           64  convergence=  2.194785753714396E-002
+  delta convergence=  4.729949527396854E-006
+ new R
+   376.05    
+ new G
+  0.15517E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4838.22739142107       : AIC =    4842.22739142107     
+  In round           65  convergence=  2.194785963554173E-002
+  delta convergence=  4.119627920595187E-006
+ new R
+   376.05    
+ new G
+  0.13515E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4823.85976432065       : AIC =    4827.85976432065     
+  In round           66  convergence=  2.194786146317325E-002
+  delta convergence=  3.588069904568220E-006
+ new R
+   376.05    
+ new G
+  0.11771E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4809.49213617484       : AIC =    4813.49213617484     
+  In round           67  convergence=  2.194786305498875E-002
+  delta convergence=  3.125097094397746E-006
+ new R
+   376.05    
+ new G
+  0.10252E-04
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4795.12450711853       : AIC =    4799.12450711853     
+  In round           68  convergence=  2.194786444140222E-002
+  delta convergence=  2.721854508099143E-006
+ new R
+   376.05    
+ new G
+  0.89293E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4780.75687726922       : AIC =    4784.75687726922     
+  In round           69  convergence=  2.194786564892949E-002
+  delta convergence=  2.370645148530191E-006
+ new R
+   376.05    
+ new G
+  0.77771E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4766.38924672922       : AIC =    4770.38924672922     
+  In round           70  convergence=  2.194786670064497E-002
+  delta convergence=  2.064761694485561E-006
+ new R
+   376.05    
+ new G
+  0.67736E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4752.02161558771       : AIC =    4756.02161558771     
+  In round           71  convergence=  2.194786761665748E-002
+  delta convergence=  1.798334651640217E-006
+ new R
+   376.05    
+ new G
+  0.58996E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4737.65398392226       : AIC =    4741.65398392226     
+  In round           72  convergence=  2.194786841447023E-002
+  delta convergence=  1.566296391566756E-006
+ new R
+   376.05    
+ new G
+  0.51384E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4723.28635180047       : AIC =    4727.28635180047     
+  In round           73  convergence=  2.194786910934174E-002
+  delta convergence=  1.364188048370426E-006
+ new R
+   376.05    
+ new G
+  0.44753E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4708.91871928127       : AIC =    4712.91871928127     
+  In round           74  convergence=  2.194786971455437E-002
+  delta convergence=  1.188167963680976E-006
+ new R
+   376.05    
+ new G
+  0.38979E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4694.55108641583       : AIC =    4698.55108641583     
+  In round           75  convergence=  2.194787024167448E-002
+  delta convergence=  1.034855069467844E-006
+ new R
+   376.05    
+ new G
+  0.33949E-05
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    4680.18345324897       : AIC =    4684.18345324897     
+  In round           76  convergence=  2.194787070077353E-002
+  delta convergence=  9.013254855824680E-007
+ new R
+   376.05    
+ new G
+  0.29569E-05
+ * END ITERATION: 11-21-2023  09h 34m 28s 040
+ solutions and s.e. stored in file: "solutions"
+
+Final Estimates
+ Genetic variance(s) for effect  2       
+  0.29569E-05
+ Residual variance(s)
+   376.05    
+ inverse of AI matrix (Sampling Variance)
+  0.28599E-13   0.0000    
+   0.0000       388.50    
+ Correlations from inverse of AI matrix
+   1.0000       0.0000    
+   0.0000       1.0000    
+ SE for G
+  0.16911E-06
+ SE for R
+   19.710    
+ Sparse inverse of nrm_inverse, elapsed time:    1.30
+  
+ Sampling variances of covariances function of random effects (n=10000)
+  
+P  - Function: g_2_2_1_1+r_1_1
+  Mean:    376.05    
+  Sample Mean:    376.05    
+  Sample SD:    19.683    
+  
+h2  - Function: g_2_2_1_1/(g_2_2_1_1+r_1_1)
+  Mean:   0.78629E-08
+  Sample Mean:   0.78847E-08
+  Sample SD:   0.41691E-09
+ elapsed time  7.8125000E-02
+ *** Statistical Method: VCE                 
+ * FINISHED (BLUPF90): 11-21-2023  09h 34m 30s 361

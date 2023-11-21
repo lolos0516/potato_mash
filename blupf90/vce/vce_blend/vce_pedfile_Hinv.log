@@ -1,0 +1,153 @@
+
+ssgblup.par
+     BLUPF90+ ver. 2.51
+
+ Parameter file:             ssgblup.par
+ Data file:                  ../renum_gbs/renf90.dat
+ Number of Traits             1
+ Number of Effects            2
+ Position of Observations      1
+ Position of Weights           0
+ Value of Missing Trait/Observation           0
+
+EFFECTS
+ #  type                position (2)        levels   [positions for nested]
+    1  cross-classified       2         3
+    2  cross-classified       3       806
+
+ Residual (co)variance Matrix
+  100.00    
+
+ Random Effect(s)    2
+ Type of Random Effect:      user defined from file
+ User File:                  ../Hinv_manual                                                                                                                                                                                                                                            
+ trait   effect    (CO)VARIANCES
+  1       2     100.0    
+
+ REMARKS
+  (1) Weight position 0 means no weights utilized
+  (2) Effect positions of 0 for some effects and traits means that such
+      effects are missing for specified traits
+ 
+
+ * The limited number of OpenMP threads = 4
+
+ * BLUPF90+ sparse operations version
+ 
+ * START JOB (BLUPF90): 11-21-2023  16h 47m 14s 986
+ 
+ *** Statistical method from OPTION VCE                 
+ * store solutions and s.e. *** se                  
+* SE for function of (co)variances P G_2_2_1_1+R_1_1
+* SE for function of (co)variances h2 G_2_2_1_1/(G_2_2_1_1+R_1_1)
+ * store accuracy in file: "acc_bf90"            2
+ 
+ IJA4 version
+ Data record length =            3
+ # free parameters=           2
+ # parameters=           2
+ # random effects=           1
+ # elements for random effects=           1
+ # maximum (ntrait*random)**2=           1
+ # (co)variance matrices=           1
+
+Read 728 records in 4.50 s,  1351 nonzeroes
+
+hash matrix increased from            8192 to           16384 % filled:     0.8000
+hash matrix increased from           16384 to           32768 % filled:     0.8000
+hash matrix increased from           32768 to           65536 % filled:     0.8000
+hash matrix increased from           65536 to          131072 % filled:     0.8000
+hash matrix increased from          131072 to          262144 % filled:     0.8000
+hash matrix increased from          262144 to          524288 % filled:     0.8000
+ g_usr_inv: read       325221  elements
+ largest row, column, diagonal:         806         806         806
+hash matrix increased from            8192 to           16384 % filled:     0.8000
+hash matrix increased from           16384 to           32768 % filled:     0.8000
+hash matrix increased from           32768 to           65536 % filled:     0.8000
+hash matrix increased from           65536 to          131072 % filled:     0.8000
+hash matrix increased from          131072 to          262144 % filled:     0.8000
+hash matrix increased from          262144 to          524288 % filled:     0.8000
+
+finished peds (VCE) in 10.89 s,  325844 nonzeroes
+
+ 
+ *** Advise: running BLUPF90+ --dense might speed up computations
+ 
+ rank=         459
+               **************
+               **** FSPAK ***
+               **************
+               MPE / IM / MAE
+                   Jun 1994
+
+              SPARSE STATISTICS
+      DIMENSION OF MATRIX     =                      809
+      RANK                    =                      459
+      STORAGE AVAILABLE       =                  1636313
+      MAXIMUM NEEDED          =                  1636313
+      NZE IN UPPER TRIANGULAR =                   326653
+      NZE IN FACTOR           =                   325035
+      NO. OF CALLS NUM FACT   =                        1
+      NO. OF CALLS SOLVE      =                        1
+      NO. OF CALLS SPARS SOLV =                        0
+      NO. OF CALLS DET / LDET =                        1
+      NO. OF CALLS SPARS INV  =                        1
+      TOTAL CPU TIME IN FSPAK =                 2.515625
+      TIME FOR FINDING ORDER  =                 0.031250
+      TIME FOR SYMBOLIC FAC   =                 0.421875
+      TIME FOR NUMERICAL FAC  =                 0.421875
+      TIME FOR SOLVE          =                 0.000000
+      TIME FOR SPARSE SOLVE   =                 0.000000
+      TIME FOR SPARSE INVERSE =                 1.593750
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =   -156694452.421374       : AIC =   -156694448.421374     
+  In round            1  convergence=  0.000000000000000E+000
+  delta convergence=  0.000000000000000E+000
+ new R
+   0.0000    
+ new G
+   100.00    
+ * START ITERATION: 11-21-2023  16h 47m 31s 677
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    3210.43581250294       : AIC =    3214.43581250294     
+  In round            2  convergence=  0.000000000000000E+000
+  delta convergence=  0.000000000000000E+000
+ new R
+   0.0000    
+ new G
+   100.00    
+ * END ITERATION: 11-21-2023  16h 47m 34s 691
+ solutions and s.e. stored in file: "solutions"
+
+Final Estimates
+ Genetic variance(s) for effect  2       
+   100.00    
+ Residual variance(s)
+   0.0000    
+ inverse of AI matrix (Sampling Variance)
+   0.0000       0.0000    
+   0.0000       0.0000    
+ Correlations from inverse of AI matrix
+   0.0000       0.0000    
+   0.0000       0.0000    
+ SE for G
+   0.0000    
+ SE for R
+   0.0000    
+ Sparse inverse of nrm_inverse, elapsed time:    2.25
+* Warning * may need to increase # samples     0     2
+  
+ Sampling variances of covariances function of random effects (n=10000)
+  
+P  - Function: g_2_2_1_1+r_1_1
+  Mean:    100.00    
+  Sample Mean:    100.00    
+  Sample SD:    0.0000    
+  
+h2  - Function: g_2_2_1_1/(g_2_2_1_1+r_1_1)
+  Mean:    1.0000    
+  Sample Mean:    1.0000    
+  Sample SD:    0.0000    
+ elapsed time  4.6875000E-02
+ *** Statistical Method: VCE                 
+ * FINISHED (BLUPF90): 11-21-2023  16h 47m 38s 581

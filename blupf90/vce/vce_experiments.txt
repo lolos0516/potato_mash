@@ -15,12 +15,12 @@ Final Estimates
    208.266
 Rank 809
 
-# use ped, gbs_clean, OPTION readGInverse ../pregs_gbs/Gi, OPTION AlphaBeta 0.99 30.01 
+# use ped, gbs_clean, OPTION readGInverse ../pregs_hap/Gi, OPTION AlphaBeta 0.99 0.01 
 # Gi need to be compatible to snp file
- Genetic variance(s) for effect  2       M
-   342.15    M
+ Genetic variance(s) for effect  2       
+   342.15    
  Residual variance(s)M
-   208.26    M
+   208.26    
 Rank 809
 
 # use pregs_gbs/Gi as Ai, gbs_clean, OPTION AlphaBeta 0.99 0.01
@@ -39,9 +39,44 @@ Final Estimates
    365.98
 Rank 809
 
+### VCE haplotype ###
+# use renadd02.ped, snp file haplotype_clean, OPTION AlphaBeta 0.99 0.01, OPTION TauOmega 1.0 0.0
+Final Estimates
+ Genetic variance(s) for effect  2
+ 747.29 # this looks wrong to me
+ Residual variance(s)
+   150.67
+Rank 809
+
+# use renadd02.ped, snp file haplotype_clean, OPTION AlphaBeta 0.99 0.01, option omit_ainv, OPTION TauOmega 1.0 0.0
+Final Estimates
+ Genetic variance(s) for effect  2
+  0.29569E-05
+ Residual variance(s)
+   376.05
+Rank 760
+
+### VCE gbs_a22 ###
+# use renadd02.ped, snp file gbs_a22_clean, OPTION AlphaBeta 0.99 0.01, OPTION TauOmega 1.0 0.0; option omit_ainv
+Final Estimates
+ Genetic variance(s) for effect  2
+  0.35933E-05
+ Residual variance(s)
+   376.05
+Rank 760
+
+# use renadd02.ped, snp file gbs_a22_clean, OPTION AlphaBeta 0.99 0.01, OPTION TauOmega 1.0 0.0; option omit_ainv
+# readGInv ../pregs_gbs_a22/Gi
+Final Estimates
+ Genetic variance(s) for effect  2
+  0.35933E-05
+ Residual variance(s)
+   376.05   
+Rank 760
+
 ## Blend GBS ##
 # use pregs_gbs/Gi as Ai, haplotype_clean, OPTION readA22Inverse ../pregs_gbs_a22/Gi, OPTION readGInverse ../pregs_hap/Gi
-# tuneG, tau omega, alpha beta default
+# tuneG, tau omega 1, 0, alpha beta default
 # it seems no options can change the results as long as pregs_gbs/Gi as Ai
 Final Estimates
  Genetic variance(s) for effect  2
@@ -50,15 +85,16 @@ Final Estimates
    365.98
 Rank 809
 
-# use Hinv_manual as Ai # the file format can be wrong 
+# use Hinv_manual as Ai 
 Final Estimates
  Genetic variance(s) for effect  2      
-  0.10000E-17
+  100
  Residual variance(s)
    0.0000   
-Rank 506 (???)
+Rank 459 (???)
 
-# use renadd, gbs_clean, OPTION readGInverse ../Hinv_manual
+# use renadd, gbs_clean, OPTION readGInverse ../Hinv_manual, 
+# tuneG 0, tau omega 1, 0, alpha beta 0.99, 0.01
 Final Estimates
  Genetic variance(*s) for effect  2
   0.10000E-17

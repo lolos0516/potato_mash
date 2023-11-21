@@ -1,0 +1,41 @@
+#Parameter file for renumf90
+DATAFILE
+../../../output/phenotype
+SKIP_HEADER
+1
+TRAITS
+2 # color
+FIELDS_PASSED TO OUTPUT
+1 4 #Line_ID year
+WEIGHT(S)
+
+RESIDUAL_VARIANCE
+100.0
+EFFECT
+4 cross alpha # year
+EFFECT
+1 cross alpha # line
+RANDOM
+animal
+FILE
+../../../output/ped_test
+SKIP_HEADER
+1
+FILE_POS
+1 2 3 0 4 # 4 is year
+SNP_FILE
+../../../output/gbs_clean
+PED_DEPTH
+0
+(CO)VARIANCES
+100
+OPTION no_quality_control
+OPTION AlphaBeta 0.99 0.01 # G = 1*G+0*I GBLUP
+OPTION TauOmega 1 0
+OPTION tunedG 0 # GBLUP
+OPTION callrate 0.7
+OPTION minfreq 0.01
+OPTOIN saveGOrig
+OPTION saveAinvOrig
+#OPTION createA22Inverse 0
+#OPTION createGimA22i 0

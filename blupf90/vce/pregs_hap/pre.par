@@ -35,6 +35,7 @@ OPTION saveCleanSNPs
 OPTION saveAscii
 OPTION saveG
 OPTION saveGInverse
+OPTION saveGInverseOrig
 OPTION skipGimA22i
 OPTION saveGOrig # same id order as Gi
 OPTION saveAinvOrig

@@ -1,6 +1,6 @@
 
 ssgblup.par
-     BLUPF90+ ver. 2.48
+     BLUPF90+ ver. 2.51
 
  Parameter file:             ssgblup.par
  Data file:                  ../renum_gbs/renf90.dat
@@ -34,7 +34,7 @@ EFFECTS
 
  * BLUPF90+ sparse operations version
  
- * START JOB (BLUPF90): 11-18-2023  15h 03m 12s 198
+ * START JOB (BLUPF90): 11-21-2023  09h 37m 38s 877
  
  *** Statistical method from OPTION VCE                 
  * store solutions and s.e. *** se                  
@@ -47,12 +47,10 @@ EFFECTS
  * SNP format: BLUPF90 standard (text)
  * SNP file: ../../../output/haplotype_clean
  * SNP Xref file: ../../../output/haplotype_clean_XrefID
- * Save A22 Inverse  matrix (default=.false.)
- * Save G Inverse matrix (default=.false.)
  * No Quality Control Checks !!!!! (default .false.):  T
  * Create a tuned G (default = 2): 0
  * AlphaBeta defaults alpha=0.95, beta=0.05) :  0.99  0.01
- * TauOmega (defaults tau=1.0, omega=1.0) :  1.00  1.00
+ * TauOmega (defaults tau=1.0, omega=1.0) :  1.00  0.00
  * Matrix in Ascii format(default=binary)
  IJA4 version
  Data record length =            3
@@ -63,15 +61,15 @@ EFFECTS
  # maximum (ntrait*random)**2=           1
  # (co)variance matrices=           1
 
-Read 728 records in 7.47 s,  1351 nonzeroes
+Read 728 records in 10.78 s,  1351 nonzeroes
 
 
 Read 806 additive pedigrees
  
  *--------------------------------------------------------------*
- *                 Genomic Library: Dist Version 1.308          *
+ *                 Genomic Library: Dist Version 1.313          *
  *                                                              *
- *             Optimized OpenMP Version -  4 threads            *
+ *             Optimized OpenMP Version -   4 threads            *
  *                                                              *
  *  Modified relationship matrix (H) created for effect:   2    *
  *--------------------------------------------------------------*
@@ -81,7 +79,7 @@ Read 806 additive pedigrees
 
  Creating A22 
     Extracting subset of: 702 pedigrees from: 806 ...elapsed time:     0.0000
-    Calculating A22 Matrix by Colleau OpenMP...elapsed time: .0124
+    Calculating A22 Matrix by Colleau OpenMP...elapsed time: .0173
     Numbers of threads=1 4
 
  Reading SNP file
@@ -90,7 +88,7 @@ Read 806 additive pedigrees
     Number of SNPs: 1293
     Format: integer genotypes (0 to 5) to double-precision array
     Number of Genotyped animals: 702
-    Reading SNP file elapsed time: .11
+    Reading SNP file elapsed time: .12
  
  Statistics of alleles frequencies in the current population
     N:           1293
@@ -107,7 +105,7 @@ Read 806 additive pedigrees
  Genotypes missings (%): 10.290
 
  Calculating G Matrix 
-    Dgemm MKL #threads=     1    4 Elapsed omp_get_time:     0.9381
+    Dgemm MKL #threads=     1    4 Elapsed omp_get_time:     0.9354
  
  Scale by Sum(2pq). Average:   394.075263052752     
 
@@ -918,7 +916,9 @@ Read 806 additive pedigrees
  
 
  Creating A22-inverse 
-    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.1171
+    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.1049
+ 
+ Adjusting A22-inverse : Omega * A22-inverse      0.000
 
  ----------------------
   Final A22 Inv Matrix 
@@ -926,14 +926,12 @@ Read 806 additive pedigrees
  
  Statistic of Inv. Rel. Matrix A22
                                 N      Mean       Min       Max       Var
-     Diagonal                 702     1.000     1.000     1.000     0.000
+     Diagonal                 702     0.000     0.000     0.000     0.000
      Off-diagonal          492102     0.000     0.000     0.000     0.000
  
- Saving A22-inverse in file: "A22i"
-       elapsed time=    12.9
  
  Creating G-inverse 
-    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.3505
+    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.3308
 
  --------------------------
   Final Genomic Inv Matrix 
@@ -944,9 +942,6 @@ Read 806 additive pedigrees
      Diagonal                 702     7.294     4.653    41.938    11.591
      Off-diagonal          492102     0.130   -37.990     2.365     0.100
  
- 
- Saving G-inverse in file: "Gi"
-       elapsed time=     8.8
 
  Check for diagonal of Inverse Genomic - Inverse of pedigree relationship matrix
 
@@ -957,12 +952,12 @@ Read 806 additive pedigrees
  
  Statistic of Inv. Genomic - A22 Matrix
                                 N      Mean       Min       Max       Var
-     Diagonal                 702     6.294     3.653    40.938    11.591
+     Diagonal                 702     7.294     4.653    41.938    11.591
      Off-diagonal          492102     0.130   -37.990     2.365     0.100
  
 
 *--------------------------------------------------*
-* Setup Genomic Done !!!, elapsed time:     24.279 *
+* Setup Genomic Done !!!, elapsed time:      3.258 *
 *--------------------------------------------------*
 
  wGimA22i   1.00000000000000     
@@ -979,7 +974,7 @@ hash matrix increased from           65536 to          131072 % filled:     0.80
 hash matrix increased from          131072 to          262144 % filled:     0.8000
 hash matrix increased from          262144 to          524288 % filled:     0.8000
 
-finished peds (VCE) in 32.00 s,  247480 nonzeroes
+finished peds (VCE) in 16.50 s,  247480 nonzeroes
 
  rank=         809
                **************
@@ -1000,101 +995,109 @@ finished peds (VCE) in 32.00 s,  247480 nonzeroes
       NO. OF CALLS SPARS SOLV =                        0
       NO. OF CALLS DET / LDET =                        1
       NO. OF CALLS SPARS INV  =                        1
-      TOTAL CPU TIME IN FSPAK =                 1.687500
-      TIME FOR FINDING ORDER  =                 0.046875
-      TIME FOR SYMBOLIC FAC   =                 0.265625
-      TIME FOR NUMERICAL FAC  =                 0.218750
+      TOTAL CPU TIME IN FSPAK =                 2.312500
+      TIME FOR FINDING ORDER  =                 0.000000
+      TIME FOR SYMBOLIC FAC   =                 0.671875
+      TIME FOR NUMERICAL FAC  =                 0.203125
       TIME FOR SOLVE          =                 0.000000
       TIME FOR SPARSE SOLVE   =                 0.000000
-      TIME FOR SPARSE INVERSE =                 1.156250
+      TIME FOR SPARSE INVERSE =                 1.343750
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6611.48801952300       : AIC =    6615.48801952300     
-  In round            1  convergence=  0.192464785423680     
-  delta convergence=   62.0104047555848     
+ -2logL =    6895.12243443659       : AIC =    6899.12243443659     
+  In round            1  convergence=  0.297093372982567     
+  delta convergence=   82.4249983071813     
  new R
-   145.86    
+   145.04    
  new G
-   178.16    
- * START ITERATION: 11-18-2023  15h 03m 46s 465
+   219.81    
+ * START ITERATION: 11-21-2023  09h 37m 55s 082
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6339.26714152201       : AIC =    6343.26714152201     
-  In round            2  convergence=  0.125647253093592     
-  delta convergence=   63.0719083216341     
+ -2logL =    6453.74886017031       : AIC =    6457.74886017031     
+  In round            2  convergence=  0.242973884392251     
+  delta convergence=   117.756510248250     
  new R
-   174.17    
+   166.88    
  new G
-   275.99    
+   433.49    
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6281.22831545312       : AIC =    6285.22831545312     
-  In round            3  convergence=  3.749609206922983E-002
-  delta convergence=   34.8344108048294     
+ -2logL =    6330.94988929620       : AIC =    6334.94988929620     
+  In round            3  convergence=  0.117275149535028     
+  delta convergence=   117.702905759370     
  new R
-   177.57    
+   157.23    
  new G
-   342.27    
+   659.25    
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6275.86688262998       : AIC =    6279.86688262998     
-  In round            4  convergence=  1.461525005596711E-003
-  delta convergence=   7.32190421560034     
+ -2logL =    6310.42536002758       : AIC =    6314.42536002758     
+  In round            4  convergence=  1.275081259637789E-002
+  delta convergence=   45.2348004002793     
  new R
-   176.53    
+   150.68    
  new G
-   355.87    
+   743.17    
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6275.76931898326       : AIC =    6279.76931898326     
-  In round            5  convergence=  7.406126485540794E-007
-  delta convergence=  0.166363800492880     
+ -2logL =    6309.32412990127       : AIC =    6313.32412990127     
+  In round            5  convergence=  3.144306924418269E-005
+  delta convergence=   2.11039031065103     
  new R
-   176.50    
+   150.65    
  new G
-   356.18    
+   747.36    
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6275.76927437026       : AIC =    6279.76927437026     
-  In round            6  convergence=  6.758240810150484E-012
-  delta convergence=  6.380893238480792E-004
+ -2logL =    6309.32073464566       : AIC =    6313.32073464566     
+  In round            6  convergence=  8.485176109396179E-009
+  delta convergence=  4.329710754981459E-002
  new R
-   176.50    
+   150.67    
  new G
-   356.18    
+   747.29    
 quadr_ija: OpenMP threads=  1  4    246857 OMP= F
- -2logL =    6275.76927436981       : AIC =    6279.76927436981     
-  In round            7  convergence=  1.944109627646945E-016
-  delta convergence=  3.323962497152334E-006
+ -2logL =    6309.32073394640       : AIC =    6313.32073394640     
+  In round            7  convergence=  1.767177647259683E-011
+  delta convergence=  1.908910458338623E-003
  new R
-   176.50    
+   150.67    
  new G
-   356.18    
- * END ITERATION: 11-18-2023  15h 03m 54s 736
+   747.29    
+quadr_ija: OpenMP threads=  1  4    246857 OMP= F
+ -2logL =    6309.32073394535       : AIC =    6313.32073394535     
+  In round            8  convergence=  3.030029332978898E-014
+  delta convergence=  7.905741380343878E-005
+ new R
+   150.67    
+ new G
+   747.29    
+ * END ITERATION: 11-21-2023  09h 38m 14s 285
  solutions and s.e. stored in file: "solutions"
 
 Final Estimates
  Genetic variance(s) for effect  2       
-   356.18    
+   747.29    
  Residual variance(s)
-   176.50    
+   150.67    
  inverse of AI matrix (Sampling Variance)
-   2639.6      -602.07    
-  -602.07       348.60    
+   9803.9      -1470.2    
+  -1470.2       446.39    
  Correlations from inverse of AI matrix
-   1.0000     -0.62765    
- -0.62765       1.0000    
+   1.0000     -0.70277    
+ -0.70277       1.0000    
  SE for G
-   51.377    
+   99.015    
  SE for R
-   18.671    
- Sparse inverse of nrm_inverse, elapsed time:    1.00
+   21.128    
+ Sparse inverse of nrm_inverse, elapsed time:    2.71
   
  Sampling variances of covariances function of random effects (n=10000)
   
 P  - Function: g_2_2_1_1+r_1_1
-  Mean:    532.68    
-  Sample Mean:    532.33    
-  Sample SD:    42.638    
+  Mean:    897.96    
+  Sample Mean:    897.23    
+  Sample SD:    86.328    
   
 h2  - Function: g_2_2_1_1/(g_2_2_1_1+r_1_1)
-  Mean:   0.66865    
-  Sample Mean:   0.66513    
-  Sample SD:   0.51481E-01
- elapsed time  3.1250000E-02
+  Mean:   0.83221    
+  Sample Mean:   0.82899    
+  Sample SD:   0.36517E-01
+ elapsed time  6.2500000E-02
  *** Statistical Method: VCE                 
- * FINISHED (BLUPF90): 11-18-2023  15h 03m 56s 424
+ * FINISHED (BLUPF90): 11-21-2023  09h 38m 18s 588
