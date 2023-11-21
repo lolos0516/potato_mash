@@ -1,0 +1,6 @@
+if used user_file ../pregs_gbs/Gi, no matter if OPTION omit_ainv is used, or OPTION SNP_FILE is used the results are the same. The rank will be the same as the Ginverse rank (810+3)
+This also created problem for blend vce.
+
+use OPTION_omit_ainv will reduce the rank to 625 which is less than the gbs dimension of 806 (+3?)
+
+The OPTION SNP_file + OPTION_omit_aniv results look the most believable. See vce_snp_clean_omitainv.log

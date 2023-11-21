@@ -1,26 +1,26 @@
 ### VCE GBS ###
-# use renadd02.ped, snp file gbs_clean, OPTION AlphaBeta 0.99 0.01, not using option omit_ainv 
+# use renadd02.ped, snp file gbs_clean, OPTION AlphaBeta 0.99 0.01
 Final Estimates
  Genetic variance(s) for effect  2
-   342.15
+  0.49093E-04
  Residual variance(s)
-   208.266
+   389.91
 Rank 809
 
 # use renadd02.ped, snp file gbs_clean, OPTION AlphaBeta 0.99 0.01, option omit_ainv, OPTION TauOmega 1.0 0.0
 Final Estimates
  Genetic variance(s) for effect  2
-   342.15
+  0.49093E-04
  Residual variance(s)
-   208.266
+   389.91
 Rank 809
 
-# use ped, gbs_clean, OPTION readGInverse ../pregs_hap/Gi, OPTION AlphaBeta 0.99 0.01 
-# Gi need to be compatible to snp file
- Genetic variance(s) for effect  2       
-   342.15    
- Residual variance(s)M
-   208.26    
+*# use ped, gbs_clean, OPTION readGInverse ../pregs_hap/Gi, OPTION omit_ainv
+# tuneG 0, tau omega 1, 0, alpha beta 0.99, 0.01
+ Genetic variance(s) for effect  2
+  0.49093E-04
+ Residual variance(s)
+   389.91
 Rank 809
 
 # use pregs_gbs/Gi as Ai, gbs_clean, OPTION AlphaBeta 0.99 0.01
@@ -48,7 +48,7 @@ Final Estimates
    150.67
 Rank 809
 
-# use renadd02.ped, snp file haplotype_clean, OPTION AlphaBeta 0.99 0.01, option omit_ainv, OPTION TauOmega 1.0 0.0
+*# use renadd02.ped, snp file haplotype_clean, OPTION AlphaBeta 0.99 0.01, option omit_ainv, OPTION TauOmega 1.0 0.0
 Final Estimates
  Genetic variance(s) for effect  2
   0.29569E-05
@@ -65,7 +65,7 @@ Final Estimates
    376.05
 Rank 760
 
-# use renadd02.ped, snp file gbs_a22_clean, OPTION AlphaBeta 0.99 0.01, OPTION TauOmega 1.0 0.0; option omit_ainv
+*# use renadd02.ped, snp file gbs_a22_clean, OPTION AlphaBeta 0.99 0.01, OPTION TauOmega 1.0 0.0; option omit_ainv
 # readGInv ../pregs_gbs_a22/Gi
 Final Estimates
  Genetic variance(s) for effect  2
@@ -85,7 +85,7 @@ Final Estimates
    365.98
 Rank 809
 
-# use Hinv_manual as Ai 
+# use Hinv_manual as Ai # BLUPF90 expects Ai to be sparse. So can't use genotype matrices here.
 Final Estimates
  Genetic variance(s) for effect  2      
   100
@@ -93,38 +93,11 @@ Final Estimates
    0.0000   
 Rank 459 (???)
 
-# use renadd, gbs_clean, OPTION readGInverse ../Hinv_manual, 
+*# use renadd, gbs_clean, OPTION readGInverse ../Hinv_sorted, OPTION omit_ainv
 # tuneG 0, tau omega 1, 0, alpha beta 0.99, 0.01
 Final Estimates
- Genetic variance(*s) for effect  2
-  0.10000E-17
- Residual variance(s)
-   0.0000
-Rank 443
-
-# use renadd, gbs_clean, OPTION readGInverse ../Hinv_manual, OPTION omit_ainv
-Final Estimates
  Genetic variance(s) for effect  2
-   100.00
+   954.19
  Residual variance(s)
-   0.0000
-Rank 443
-
-# use ped, haplotype_clean, OPTION readA22Inverse ../pregs_gbs_a22/Gi, OPTION readGInverse ../pregs_hap/Gi
-# tuneG default, tau omega alpha beta default
-Final Estimates
- Genetic variance(s) for effect  2
-  100.00
- Residual variance(s)
-   0.0000
-RANK 220
-
-# use ped, haplotype_clean, OPTION readA22Inverse ../pregs_gbs_a22/Gi, OPTION readGInverse ../pregs_hap/Gi
-# OPTION omit_ainv
-# tuneG default, tau omega alpha beta default
-Final Estimates
- Genetic variance(s) for effect  2
-  0.10000E-17
- Residual variance(s)
-   0.0000
-RANK 156
+   355.60
+Rank 809

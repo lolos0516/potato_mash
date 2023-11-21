@@ -1,6 +1,6 @@
 
 ssgblup.par
-     BLUPF90+ ver. 2.48
+     BLUPF90+ ver. 2.51
 
  Parameter file:             ssgblup.par
  Data file:                  ../renum_gbs/renf90.dat
@@ -34,7 +34,7 @@ EFFECTS
 
  * BLUPF90+ sparse operations version
  
- * START JOB (BLUPF90): 11-18-2023  13h 34m 40s 937
+ * START JOB (BLUPF90): 11-21-2023  21h 31m 58s 972
  
  *** Statistical method from OPTION VCE                 
  * store solutions and s.e. *** se                  
@@ -47,12 +47,12 @@ EFFECTS
  * SNP format: BLUPF90 standard (text)
  * SNP file: ../../../output/gbs_clean
  * SNP Xref file: ../../../output/gbs_clean_XrefID
- * Save G Inverse matrix (default=.false.)
+ * ReadGInverse (default=.false.)
+ * G Inverse file (default "Gi"): ../pregs_gbs/Gi
  * Skip Save GmA22 Inverse matrix (default=.true.)
  * No Quality Control Checks !!!!! (default .false.):  T
  * Create a tuned G (default = 2): 0
  * AlphaBeta defaults alpha=0.95, beta=0.05) :  0.99  0.01
- * TauOmega (defaults tau=1.0, omega=1.0) :  1.00  1.00
  * Matrix in Ascii format(default=binary)
  IJA4 version
  Data record length =            3
@@ -63,15 +63,15 @@ EFFECTS
  # maximum (ntrait*random)**2=           1
  # (co)variance matrices=           1
 
-Read 728 records in 11.58 s,  1351 nonzeroes
+Read 728 records in 5.95 s,  1351 nonzeroes
 
 
 Read 806 additive pedigrees
  
  *--------------------------------------------------------------*
- *                 Genomic Library: Dist Version 1.308          *
+ *                 Genomic Library: Dist Version 1.313          *
  *                                                              *
- *             Optimized OpenMP Version -  4 threads            *
+ *             Optimized OpenMP Version -   4 threads            *
  *                                                              *
  *  Modified relationship matrix (H) created for effect:   2    *
  *--------------------------------------------------------------*
@@ -81,911 +81,8 @@ Read 806 additive pedigrees
 
  Creating A22 
     Extracting subset of: 806 pedigrees from: 806 ...elapsed time:     0.0000
-    Calculating A22 Matrix by Colleau OpenMP...elapsed time: .0198
+    Calculating A22 Matrix by Colleau OpenMP...elapsed time: .0131
     Numbers of threads=1 4
-
- Reading SNP file
-    Column position in file for the first marker: 12
-    Format to read SNP file: (11x,400000i1)                                    
-    Number of SNPs: 31881
-    Format: integer genotypes (0 to 5) to double-precision array
-    Number of Genotyped animals: 806
-    Reading SNP file elapsed time: 4.72
- 
- Statistics of alleles frequencies in the current population
-    N:          31881
-    Mean:       0.304
-    Min:        0.050
-    Max:        0.950
-    Var:        0.037
- 
- Quality Control - SNPs with Call Rate < callrate ( 0.90) Exist - NOT REMOVED: 31881
- 
-
- Quality Control - Animals that should be REMOVED for Call rate < callrate ( 0.90): 402
- All missing SNP for genotyped animal (#gen, renumber Id) 82 766
- All missing SNP for genotyped animal (#gen, renumber Id) 208 120
-
- Genotypes missings (%): 24.780
-
- Calculating G Matrix 
-    Dgemm MKL #threads=     1    4 Elapsed omp_get_time:    41.5322
- 
- Scale by Sum(2pq). Average:   8360.67844885203     
-
- Detecting samples with similar genotypes
-    elapsed time=     0.0
-
- *****************************************
- *  Possible genotype duplicates samples *
- *****************************************
-
-    i-j number of sample , i-j renumber Id, G(i,j), G(i,i), G(j,j), r(i,j) 
-         104      10     611      21  0.5357  0.5791  0.5720  0.9307
-         527      14     638     728  0.4978  0.5534  0.5393  0.9113
-         135     113      37      95  0.0437  0.1083  0.0202  0.9359
-         337     113     146      95  0.0437  0.1083  0.0202  0.9359
-         621     113     318      95  0.0437  0.1083  0.0202  0.9359
-         763     113     681      95  0.0437  0.1083  0.0202  0.9359
-         795     113     667      95  0.0437  0.1083  0.0202  0.9359
-         337     135     146      37  0.1083  0.1083  0.1083  1.0000
-         621     135     318      37  0.1083  0.1083  0.1083  1.0000
-         763     135     681      37  0.1083  0.1083  0.1083  1.0000
-         795     135     667      37  0.1083  0.1083  0.1083  1.0000
-         217     213      58      57  0.5136  0.5541  0.5493  0.9310
-         621     337     318     146  0.1083  0.1083  0.1083  1.0000
-         763     337     681     146  0.1083  0.1083  0.1083  1.0000
-         795     337     667     146  0.1083  0.1083  0.1083  1.0000
-         673     529     495     485  0.5048  0.5619  0.5587  0.9010
-         763     621     681     318  0.1083  0.1083  0.1083  1.0000
-         795     621     667     318  0.1083  0.1083  0.1083  1.0000
-         795     763     667     681  0.1083  0.1083  0.1083  1.0000
-    elapsed time=     0.0
- No tuning before blending
- 
- Blend G as alpha*G + beta*A22: (alpha,beta)     0.990     0.010
-
- Frequency - Diagonal of G
-    N:         806
-    Mean:        0.515
-    Min:         0.010
-    Max:         8.192
-    Range:       0.409
-    Class:     20
- 
-  #Class       Class   Count
-       1  0.1000E-01      96
-       2  0.4191         707
-       3  0.8282           1
-       4   1.237           1
-       5   1.646           0
-       6   2.056           0
-       7   2.465           0
-       8   2.874           0
-       9   3.283           0
-      10   3.692           0
-      11   4.101           0
-      12   4.510           0
-      13   4.919           0
-      14   5.328           0
-      15   5.737           0
-      16   6.147           0
-      17   6.556           0
-      18   6.965           0
-      19   7.374           0
-      20   7.783           1
-      21   8.192           0
- 
-
- Check for diagonal of genomic relationship matrix
-
- ** Low Diagonal of genotype 1  0.57 Not Removed
- ** Low Diagonal of genotype 2  0.49 Not Removed
- ** Low Diagonal of genotype 3  0.55 Not Removed
- ** Low Diagonal of genotype 4  0.32 Not Removed
- ** Low Diagonal of genotype 5  0.57 Not Removed
- ** Low Diagonal of genotype 6  0.51 Not Removed
- ** Low Diagonal of genotype 7  0.58 Not Removed
- ** Low Diagonal of genotype 8  0.56 Not Removed
- ** Low Diagonal of genotype 9  0.52 Not Removed
- ** Low Diagonal of genotype 10  0.58 Not Removed
- ** Low Diagonal of genotype 11  0.54 Not Removed
- ** Low Diagonal of genotype 12  0.39 Not Removed
- ** Low Diagonal of genotype 14  0.54 Not Removed
- ** Low Diagonal of genotype 15  0.30 Not Removed
- ** Low Diagonal of genotype 16  0.58 Not Removed
- ** Low Diagonal of genotype 17  0.56 Not Removed
- ** Low Diagonal of genotype 18  0.58 Not Removed
- ** Low Diagonal of genotype 19  0.52 Not Removed
- ** Low Diagonal of genotype 20  0.52 Not Removed
- ** Low Diagonal of genotype 21  0.47 Not Removed
- ** Low Diagonal of genotype 22  0.50 Not Removed
- ** Low Diagonal of genotype 23  0.43 Not Removed
- ** Low Diagonal of genotype 24  0.66 Not Removed
- ** Low Diagonal of genotype 25  0.47 Not Removed
- ** Low Diagonal of genotype 26  0.50 Not Removed
- ** Low Diagonal of genotype 27  0.55 Not Removed
- ** Low Diagonal of genotype 28  0.60 Not Removed
- ** Low Diagonal of genotype 29  0.51 Not Removed
- ** Low Diagonal of genotype 30  0.45 Not Removed
- ** Low Diagonal of genotype 31  0.57 Not Removed
- ** Low Diagonal of genotype 32  0.47 Not Removed
- ** Low Diagonal of genotype 33  0.55 Not Removed
- ** Low Diagonal of genotype 34  0.44 Not Removed
- ** Low Diagonal of genotype 35  0.58 Not Removed
- ** Low Diagonal of genotype 36  0.54 Not Removed
- ** Low Diagonal of genotype 37  0.44 Not Removed
- ** Low Diagonal of genotype 38  0.55 Not Removed
- ** Low Diagonal of genotype 39  0.35 Not Removed
- ** Low Diagonal of genotype 40  0.46 Not Removed
- ** Low Diagonal of genotype 41  0.56 Not Removed
- ** Low Diagonal of genotype 42  0.55 Not Removed
- ** Low Diagonal of genotype 43  0.47 Not Removed
- ** Low Diagonal of genotype 44  0.58 Not Removed
- ** Low Diagonal of genotype 45  0.46 Not Removed
- ** Low Diagonal of genotype 46  0.30 Not Removed
- ** Low Diagonal of genotype 47  0.42 Not Removed
- ** Low Diagonal of genotype 48  0.54 Not Removed
- ** Low Diagonal of genotype 49  0.43 Not Removed
- ** Low Diagonal of genotype 50  0.47 Not Removed
- ** Low Diagonal of genotype 51  0.47 Not Removed
- ** Low Diagonal of genotype 52  0.49 Not Removed
- ** Low Diagonal of genotype 53  0.46 Not Removed
- ** Low Diagonal of genotype 54  0.55 Not Removed
- ** Low Diagonal of genotype 55  0.41 Not Removed
- ** Low Diagonal of genotype 56  0.51 Not Removed
- ** Low Diagonal of genotype 57  0.56 Not Removed
- ** Low Diagonal of genotype 58  0.33 Not Removed
- ** Low Diagonal of genotype 59  0.57 Not Removed
- ** Low Diagonal of genotype 60  0.52 Not Removed
- ** Low Diagonal of genotype 61  0.52 Not Removed
- ** Low Diagonal of genotype 62  0.45 Not Removed
- ** Low Diagonal of genotype 63  0.36 Not Removed
- ** Low Diagonal of genotype 64  0.53 Not Removed
- ** Low Diagonal of genotype 65  0.35 Not Removed
- ** Low Diagonal of genotype 66  0.49 Not Removed
- ** Low Diagonal of genotype 67  0.43 Not Removed
- ** Low Diagonal of genotype 68  0.55 Not Removed
- ** Low Diagonal of genotype 69  0.55 Not Removed
- ** Low Diagonal of genotype 70  0.44 Not Removed
- ** Low Diagonal of genotype 71  0.57 Not Removed
- ** Low Diagonal of genotype 72  0.55 Not Removed
- ** Low Diagonal of genotype 73  0.59 Not Removed
- ** Low Diagonal of genotype 74  0.50 Not Removed
- ** Low Diagonal of genotype 75  0.41 Not Removed
- ** Low Diagonal of genotype 76  0.54 Not Removed
- ** Low Diagonal of genotype 77  0.55 Not Removed
- ** Low Diagonal of genotype 78  0.33 Not Removed
- ** Low Diagonal of genotype 79  0.56 Not Removed
- ** Low Diagonal of genotype 80  0.53 Not Removed
- ** Low Diagonal of genotype 81  0.48 Not Removed
- ** Low Diagonal of genotype 82  0.01 Not Removed
- ** Low Diagonal of genotype 83  0.55 Not Removed
- ** Low Diagonal of genotype 84  0.49 Not Removed
- ** Low Diagonal of genotype 85  0.51 Not Removed
- ** Low Diagonal of genotype 86  0.43 Not Removed
- ** Low Diagonal of genotype 87  0.44 Not Removed
- ** Low Diagonal of genotype 88  0.43 Not Removed
- ** Low Diagonal of genotype 89  0.54 Not Removed
- ** Low Diagonal of genotype 90  0.50 Not Removed
- ** Low Diagonal of genotype 91  0.39 Not Removed
- ** Low Diagonal of genotype 92  0.52 Not Removed
- ** Low Diagonal of genotype 93  0.51 Not Removed
- ** Low Diagonal of genotype 94  0.46 Not Removed
- ** Low Diagonal of genotype 95  0.51 Not Removed
- ** Low Diagonal of genotype 96  0.51 Not Removed
- ** Low Diagonal of genotype 97  0.52 Not Removed
- ** Low Diagonal of genotype 98  0.53 Not Removed
- ** Low Diagonal of genotype 99  0.53 Not Removed
- ** Low Diagonal of genotype 100  0.51 Not Removed
- ** Low Diagonal of genotype 101  0.48 Not Removed
- ** Low Diagonal of genotype 102  0.54 Not Removed
- ** Low Diagonal of genotype 103  0.46 Not Removed
- ** Low Diagonal of genotype 104  0.58 Not Removed
- ** Low Diagonal of genotype 105  0.54 Not Removed
- ** Low Diagonal of genotype 106  0.51 Not Removed
- ** Low Diagonal of genotype 107  0.54 Not Removed
- ** Low Diagonal of genotype 108  0.55 Not Removed
- ** Low Diagonal of genotype 109  0.52 Not Removed
- ** Low Diagonal of genotype 110  0.26 Not Removed
- ** Low Diagonal of genotype 111  0.52 Not Removed
- ** Low Diagonal of genotype 112  0.52 Not Removed
- ** Low Diagonal of genotype 113  0.03 Not Removed
- ** Low Diagonal of genotype 114  0.49 Not Removed
- ** Low Diagonal of genotype 115  0.57 Not Removed
- ** Low Diagonal of genotype 116  0.52 Not Removed
- ** Low Diagonal of genotype 117  0.55 Not Removed
- ** High Diagonal of genotype 118  8.19 Not Removed
- ** Low Diagonal of genotype 119  0.56 Not Removed
- ** Low Diagonal of genotype 120  0.55 Not Removed
- ** Low Diagonal of genotype 121  0.55 Not Removed
- ** Low Diagonal of genotype 122  0.52 Not Removed
- ** Low Diagonal of genotype 123  0.52 Not Removed
- ** Low Diagonal of genotype 124  0.55 Not Removed
- ** Low Diagonal of genotype 125  0.54 Not Removed
- ** Low Diagonal of genotype 126  0.58 Not Removed
- ** High Diagonal of genotype 127  1.64 Not Removed
- ** Low Diagonal of genotype 128  0.49 Not Removed
- ** Low Diagonal of genotype 129  0.16 Not Removed
- ** Low Diagonal of genotype 130  0.35 Not Removed
- ** Low Diagonal of genotype 131  0.54 Not Removed
- ** Low Diagonal of genotype 132  0.54 Not Removed
- ** Low Diagonal of genotype 133  0.53 Not Removed
- ** Low Diagonal of genotype 134  0.35 Not Removed
- ** Low Diagonal of genotype 135  0.12 Not Removed
- ** Low Diagonal of genotype 136  0.53 Not Removed
- ** Low Diagonal of genotype 137  0.43 Not Removed
- ** Low Diagonal of genotype 138  0.47 Not Removed
- ** Low Diagonal of genotype 139  0.57 Not Removed
- ** Low Diagonal of genotype 140  0.52 Not Removed
- ** Low Diagonal of genotype 141  0.60 Not Removed
- ** Low Diagonal of genotype 142  0.57 Not Removed
- ** Low Diagonal of genotype 143  0.30 Not Removed
- ** Low Diagonal of genotype 144  0.34 Not Removed
- ** Low Diagonal of genotype 145  0.59 Not Removed
- ** Low Diagonal of genotype 146  0.46 Not Removed
- ** Low Diagonal of genotype 147  0.39 Not Removed
- ** Low Diagonal of genotype 148  0.54 Not Removed
- ** Low Diagonal of genotype 149  0.35 Not Removed
- ** Low Diagonal of genotype 150  0.55 Not Removed
- ** Low Diagonal of genotype 151  0.44 Not Removed
- ** Low Diagonal of genotype 152  0.49 Not Removed
- ** Low Diagonal of genotype 153  0.32 Not Removed
- ** Low Diagonal of genotype 154  0.54 Not Removed
- ** Low Diagonal of genotype 155  0.55 Not Removed
- ** Low Diagonal of genotype 156  0.53 Not Removed
- ** Low Diagonal of genotype 157  0.52 Not Removed
- ** Low Diagonal of genotype 158  0.56 Not Removed
- ** Low Diagonal of genotype 159  0.51 Not Removed
- ** Low Diagonal of genotype 160  0.58 Not Removed
- ** Low Diagonal of genotype 161  0.56 Not Removed
- ** Low Diagonal of genotype 162  0.54 Not Removed
- ** Low Diagonal of genotype 163  0.33 Not Removed
- ** Low Diagonal of genotype 164  0.53 Not Removed
- ** Low Diagonal of genotype 165  0.56 Not Removed
- ** Low Diagonal of genotype 166  0.50 Not Removed
- ** Low Diagonal of genotype 167  0.40 Not Removed
- ** Low Diagonal of genotype 168  0.25 Not Removed
- ** Low Diagonal of genotype 169  0.46 Not Removed
- ** Low Diagonal of genotype 170  0.58 Not Removed
- ** Low Diagonal of genotype 171  0.60 Not Removed
- ** Low Diagonal of genotype 172  0.55 Not Removed
- ** Low Diagonal of genotype 173  0.55 Not Removed
- ** Low Diagonal of genotype 174  0.42 Not Removed
- ** Low Diagonal of genotype 175  0.53 Not Removed
- ** Low Diagonal of genotype 176  0.55 Not Removed
- ** Low Diagonal of genotype 177  0.50 Not Removed
- ** Low Diagonal of genotype 178  0.55 Not Removed
- ** Low Diagonal of genotype 179  0.43 Not Removed
- ** Low Diagonal of genotype 180  0.44 Not Removed
- ** Low Diagonal of genotype 181  0.37 Not Removed
- ** Low Diagonal of genotype 182  0.51 Not Removed
- ** Low Diagonal of genotype 183  0.55 Not Removed
- ** Low Diagonal of genotype 184  0.54 Not Removed
- ** Low Diagonal of genotype 185  0.55 Not Removed
- ** Low Diagonal of genotype 186  0.47 Not Removed
- ** Low Diagonal of genotype 187  0.49 Not Removed
- ** Low Diagonal of genotype 188  0.56 Not Removed
- ** Low Diagonal of genotype 189  0.56 Not Removed
- ** Low Diagonal of genotype 190  0.51 Not Removed
- ** Low Diagonal of genotype 191  0.54 Not Removed
- ** Low Diagonal of genotype 192  0.54 Not Removed
- ** Low Diagonal of genotype 193  0.47 Not Removed
- ** Low Diagonal of genotype 194  0.52 Not Removed
- ** Low Diagonal of genotype 195  0.53 Not Removed
- ** Low Diagonal of genotype 196  0.57 Not Removed
- ** Low Diagonal of genotype 197  0.52 Not Removed
- ** Low Diagonal of genotype 198  0.52 Not Removed
- ** Low Diagonal of genotype 199  0.55 Not Removed
- ** Low Diagonal of genotype 200  0.44 Not Removed
- ** Low Diagonal of genotype 201  0.54 Not Removed
- ** Low Diagonal of genotype 202  0.58 Not Removed
- ** Low Diagonal of genotype 203  0.54 Not Removed
- ** Low Diagonal of genotype 204  0.54 Not Removed
- ** Low Diagonal of genotype 205  0.29 Not Removed
- ** Low Diagonal of genotype 206  0.60 Not Removed
- ** Low Diagonal of genotype 207  0.55 Not Removed
- ** Low Diagonal of genotype 208  0.01 Not Removed
- ** Low Diagonal of genotype 209  0.50 Not Removed
- ** Low Diagonal of genotype 210  0.55 Not Removed
- ** Low Diagonal of genotype 211  0.55 Not Removed
- ** Low Diagonal of genotype 212  0.53 Not Removed
- ** Low Diagonal of genotype 213  0.55 Not Removed
- ** Low Diagonal of genotype 214  0.56 Not Removed
- ** Low Diagonal of genotype 215  0.55 Not Removed
- ** Low Diagonal of genotype 216  0.24 Not Removed
- ** Low Diagonal of genotype 217  0.56 Not Removed
- ** Low Diagonal of genotype 218  0.53 Not Removed
- ** Low Diagonal of genotype 219  0.54 Not Removed
- ** Low Diagonal of genotype 220  0.54 Not Removed
- ** Low Diagonal of genotype 221  0.54 Not Removed
- ** Low Diagonal of genotype 222  0.30 Not Removed
- ** Low Diagonal of genotype 223  0.51 Not Removed
- ** Low Diagonal of genotype 224  0.09 Not Removed
- ** Low Diagonal of genotype 225  0.53 Not Removed
- ** Low Diagonal of genotype 226  0.48 Not Removed
- ** Low Diagonal of genotype 227  0.38 Not Removed
- ** Low Diagonal of genotype 228  0.52 Not Removed
- ** Low Diagonal of genotype 229  0.37 Not Removed
- ** Low Diagonal of genotype 230  0.23 Not Removed
- ** Low Diagonal of genotype 231  0.54 Not Removed
- ** Low Diagonal of genotype 232  0.42 Not Removed
- ** Low Diagonal of genotype 233  0.42 Not Removed
- ** Low Diagonal of genotype 234  0.56 Not Removed
- ** Low Diagonal of genotype 235  0.35 Not Removed
- ** Low Diagonal of genotype 236  0.33 Not Removed
- ** Low Diagonal of genotype 237  0.49 Not Removed
- ** Low Diagonal of genotype 238  0.58 Not Removed
- ** Low Diagonal of genotype 239  0.42 Not Removed
- ** Low Diagonal of genotype 240  0.55 Not Removed
- ** Low Diagonal of genotype 241  0.43 Not Removed
- ** Low Diagonal of genotype 242  0.34 Not Removed
- ** Low Diagonal of genotype 243  0.56 Not Removed
- ** Low Diagonal of genotype 244  0.35 Not Removed
- ** Low Diagonal of genotype 245  0.52 Not Removed
- ** Low Diagonal of genotype 246  0.48 Not Removed
- ** Low Diagonal of genotype 247  0.52 Not Removed
- ** Low Diagonal of genotype 248  0.53 Not Removed
- ** Low Diagonal of genotype 249  0.55 Not Removed
- ** Low Diagonal of genotype 250  0.57 Not Removed
- ** Low Diagonal of genotype 251  0.51 Not Removed
- ** Low Diagonal of genotype 252  0.58 Not Removed
- ** Low Diagonal of genotype 253  0.53 Not Removed
- ** Low Diagonal of genotype 254  0.54 Not Removed
- ** Low Diagonal of genotype 255  0.57 Not Removed
- ** Low Diagonal of genotype 256  0.56 Not Removed
- ** Low Diagonal of genotype 257  0.38 Not Removed
- ** Low Diagonal of genotype 258  0.40 Not Removed
- ** Low Diagonal of genotype 259  0.35 Not Removed
- ** Low Diagonal of genotype 260  0.58 Not Removed
- ** Low Diagonal of genotype 261  0.43 Not Removed
- ** Low Diagonal of genotype 262  0.48 Not Removed
- ** Low Diagonal of genotype 263  0.55 Not Removed
- ** Low Diagonal of genotype 264  0.47 Not Removed
- ** Low Diagonal of genotype 265  0.53 Not Removed
- ** Low Diagonal of genotype 266  0.54 Not Removed
- ** Low Diagonal of genotype 267  0.52 Not Removed
- ** Low Diagonal of genotype 268  0.55 Not Removed
- ** Low Diagonal of genotype 269  0.46 Not Removed
- ** Low Diagonal of genotype 270  0.54 Not Removed
- ** Low Diagonal of genotype 271  0.61 Not Removed
- ** Low Diagonal of genotype 272  0.49 Not Removed
- ** Low Diagonal of genotype 273  0.43 Not Removed
- ** Low Diagonal of genotype 274  0.40 Not Removed
- ** Low Diagonal of genotype 275  0.56 Not Removed
- ** Low Diagonal of genotype 276  0.41 Not Removed
- ** Low Diagonal of genotype 277  0.54 Not Removed
- ** Low Diagonal of genotype 278  0.54 Not Removed
- ** Low Diagonal of genotype 279  0.50 Not Removed
- ** Low Diagonal of genotype 280  0.56 Not Removed
- ** Low Diagonal of genotype 281  0.41 Not Removed
- ** Low Diagonal of genotype 282  0.48 Not Removed
- ** Low Diagonal of genotype 283  0.57 Not Removed
- ** Low Diagonal of genotype 284  0.54 Not Removed
- ** Low Diagonal of genotype 285  0.59 Not Removed
- ** Low Diagonal of genotype 286  0.47 Not Removed
- ** Low Diagonal of genotype 287  0.55 Not Removed
- ** Low Diagonal of genotype 288  0.48 Not Removed
- ** Low Diagonal of genotype 289  0.53 Not Removed
- ** Low Diagonal of genotype 290  0.53 Not Removed
- ** Low Diagonal of genotype 291  0.53 Not Removed
- ** Low Diagonal of genotype 292  0.10 Not Removed
- ** Low Diagonal of genotype 293  0.48 Not Removed
- ** Low Diagonal of genotype 294  0.54 Not Removed
- ** Low Diagonal of genotype 295  0.51 Not Removed
- ** Low Diagonal of genotype 296  0.53 Not Removed
- ** Low Diagonal of genotype 297  0.53 Not Removed
- ** Low Diagonal of genotype 298  0.53 Not Removed
- ** Low Diagonal of genotype 299  0.56 Not Removed
- ** Low Diagonal of genotype 300  0.52 Not Removed
- ** Low Diagonal of genotype 301  0.53 Not Removed
- ** Low Diagonal of genotype 302  0.50 Not Removed
- ** Low Diagonal of genotype 303  0.56 Not Removed
- ** Low Diagonal of genotype 304  0.56 Not Removed
- ** Low Diagonal of genotype 305  0.53 Not Removed
- ** Low Diagonal of genotype 306  0.54 Not Removed
- ** Low Diagonal of genotype 307  0.47 Not Removed
- ** Low Diagonal of genotype 308  0.44 Not Removed
- ** Low Diagonal of genotype 309  0.56 Not Removed
- ** Low Diagonal of genotype 310  0.43 Not Removed
- ** Low Diagonal of genotype 311  0.51 Not Removed
- ** Low Diagonal of genotype 312  0.54 Not Removed
- ** Low Diagonal of genotype 313  0.51 Not Removed
- ** Low Diagonal of genotype 314  0.53 Not Removed
- ** Low Diagonal of genotype 315  0.47 Not Removed
- ** Low Diagonal of genotype 316  0.42 Not Removed
- ** Low Diagonal of genotype 317  0.49 Not Removed
- ** Low Diagonal of genotype 318  0.44 Not Removed
- ** Low Diagonal of genotype 319  0.48 Not Removed
- ** Low Diagonal of genotype 320  0.53 Not Removed
- ** Low Diagonal of genotype 321  0.45 Not Removed
- ** Low Diagonal of genotype 322  0.51 Not Removed
- ** Low Diagonal of genotype 323  0.50 Not Removed
- ** Low Diagonal of genotype 324  0.47 Not Removed
- ** Low Diagonal of genotype 325  0.55 Not Removed
- ** Low Diagonal of genotype 326  0.39 Not Removed
- ** Low Diagonal of genotype 327  0.48 Not Removed
- ** Low Diagonal of genotype 328  0.52 Not Removed
- ** Low Diagonal of genotype 329  0.58 Not Removed
- ** Low Diagonal of genotype 330  0.52 Not Removed
- ** Low Diagonal of genotype 331  0.56 Not Removed
- ** Low Diagonal of genotype 332  0.54 Not Removed
- ** Low Diagonal of genotype 333  0.55 Not Removed
- ** Low Diagonal of genotype 334  0.51 Not Removed
- ** Low Diagonal of genotype 335  0.51 Not Removed
- ** Low Diagonal of genotype 336  0.32 Not Removed
- ** Low Diagonal of genotype 337  0.12 Not Removed
- ** Low Diagonal of genotype 338  0.47 Not Removed
- ** Low Diagonal of genotype 339  0.55 Not Removed
- ** Low Diagonal of genotype 340  0.43 Not Removed
- ** Low Diagonal of genotype 341  0.47 Not Removed
- ** Low Diagonal of genotype 342  0.51 Not Removed
- ** Low Diagonal of genotype 343  0.54 Not Removed
- ** Low Diagonal of genotype 344  0.52 Not Removed
- ** Low Diagonal of genotype 345  0.53 Not Removed
- ** Low Diagonal of genotype 346  0.39 Not Removed
- ** Low Diagonal of genotype 347  0.47 Not Removed
- ** Low Diagonal of genotype 348  0.46 Not Removed
- ** Low Diagonal of genotype 349  0.45 Not Removed
- ** Low Diagonal of genotype 350  0.52 Not Removed
- ** Low Diagonal of genotype 351  0.38 Not Removed
- ** Low Diagonal of genotype 352  0.45 Not Removed
- ** Low Diagonal of genotype 353  0.54 Not Removed
- ** Low Diagonal of genotype 354  0.59 Not Removed
- ** Low Diagonal of genotype 355  0.53 Not Removed
- ** Low Diagonal of genotype 356  0.50 Not Removed
- ** Low Diagonal of genotype 357  0.55 Not Removed
- ** Low Diagonal of genotype 358  0.54 Not Removed
- ** Low Diagonal of genotype 359  0.52 Not Removed
- ** Low Diagonal of genotype 360  0.53 Not Removed
- ** Low Diagonal of genotype 361  0.56 Not Removed
- ** Low Diagonal of genotype 362  0.52 Not Removed
- ** Low Diagonal of genotype 363  0.46 Not Removed
- ** Low Diagonal of genotype 364  0.53 Not Removed
- ** Low Diagonal of genotype 365  0.42 Not Removed
- ** Low Diagonal of genotype 366  0.56 Not Removed
- ** Low Diagonal of genotype 367  0.54 Not Removed
- ** Low Diagonal of genotype 368  0.46 Not Removed
- ** Low Diagonal of genotype 369  0.52 Not Removed
- ** Low Diagonal of genotype 370  0.50 Not Removed
- ** Low Diagonal of genotype 371  0.50 Not Removed
- ** Low Diagonal of genotype 372  0.55 Not Removed
- ** Low Diagonal of genotype 373  0.54 Not Removed
- ** Low Diagonal of genotype 374  0.56 Not Removed
- ** Low Diagonal of genotype 375  0.40 Not Removed
- ** Low Diagonal of genotype 376  0.56 Not Removed
- ** Low Diagonal of genotype 377  0.53 Not Removed
- ** Low Diagonal of genotype 378  0.54 Not Removed
- ** Low Diagonal of genotype 379  0.50 Not Removed
- ** Low Diagonal of genotype 380  0.56 Not Removed
- ** Low Diagonal of genotype 381  0.52 Not Removed
- ** Low Diagonal of genotype 382  0.52 Not Removed
- ** Low Diagonal of genotype 383  0.53 Not Removed
- ** Low Diagonal of genotype 384  0.54 Not Removed
- ** Low Diagonal of genotype 385  0.53 Not Removed
- ** Low Diagonal of genotype 386  0.58 Not Removed
- ** Low Diagonal of genotype 387  0.54 Not Removed
- ** Low Diagonal of genotype 388  0.46 Not Removed
- ** Low Diagonal of genotype 389  0.47 Not Removed
- ** Low Diagonal of genotype 390  0.43 Not Removed
- ** Low Diagonal of genotype 391  0.55 Not Removed
- ** Low Diagonal of genotype 392  0.56 Not Removed
- ** Low Diagonal of genotype 393  0.54 Not Removed
- ** Low Diagonal of genotype 394  0.55 Not Removed
- ** Low Diagonal of genotype 395  0.52 Not Removed
- ** Low Diagonal of genotype 396  0.54 Not Removed
- ** Low Diagonal of genotype 397  0.53 Not Removed
- ** Low Diagonal of genotype 398  0.60 Not Removed
- ** Low Diagonal of genotype 399  0.48 Not Removed
- ** Low Diagonal of genotype 400  0.56 Not Removed
- ** Low Diagonal of genotype 401  0.51 Not Removed
- ** Low Diagonal of genotype 402  0.52 Not Removed
- ** Low Diagonal of genotype 403  0.57 Not Removed
- ** Low Diagonal of genotype 404  0.50 Not Removed
- ** Low Diagonal of genotype 405  0.54 Not Removed
- ** Low Diagonal of genotype 406  0.41 Not Removed
- ** Low Diagonal of genotype 407  0.36 Not Removed
- ** Low Diagonal of genotype 408  0.44 Not Removed
- ** Low Diagonal of genotype 409  0.54 Not Removed
- ** Low Diagonal of genotype 410  0.56 Not Removed
- ** Low Diagonal of genotype 411  0.43 Not Removed
- ** Low Diagonal of genotype 412  0.55 Not Removed
- ** Low Diagonal of genotype 413  0.54 Not Removed
- ** Low Diagonal of genotype 414  0.53 Not Removed
- ** Low Diagonal of genotype 415  0.56 Not Removed
- ** Low Diagonal of genotype 416  0.56 Not Removed
- ** Low Diagonal of genotype 417  0.55 Not Removed
- ** Low Diagonal of genotype 418  0.41 Not Removed
- ** Low Diagonal of genotype 419  0.55 Not Removed
- ** Low Diagonal of genotype 420  0.53 Not Removed
- ** Low Diagonal of genotype 421  0.51 Not Removed
- ** Low Diagonal of genotype 422  0.47 Not Removed
- ** Low Diagonal of genotype 423  0.44 Not Removed
- ** Low Diagonal of genotype 424  0.58 Not Removed
- ** Low Diagonal of genotype 425  0.58 Not Removed
- ** Low Diagonal of genotype 426  0.53 Not Removed
- ** Low Diagonal of genotype 427  0.54 Not Removed
- ** Low Diagonal of genotype 428  0.52 Not Removed
- ** Low Diagonal of genotype 429  0.53 Not Removed
- ** Low Diagonal of genotype 430  0.45 Not Removed
- ** Low Diagonal of genotype 431  0.53 Not Removed
- ** Low Diagonal of genotype 432  0.56 Not Removed
- ** Low Diagonal of genotype 433  0.51 Not Removed
- ** Low Diagonal of genotype 434  0.55 Not Removed
- ** Low Diagonal of genotype 435  0.55 Not Removed
- ** Low Diagonal of genotype 436  0.53 Not Removed
- ** Low Diagonal of genotype 437  0.56 Not Removed
- ** Low Diagonal of genotype 438  0.55 Not Removed
- ** Low Diagonal of genotype 439  0.54 Not Removed
- ** Low Diagonal of genotype 440  0.57 Not Removed
- ** Low Diagonal of genotype 441  0.51 Not Removed
- ** Low Diagonal of genotype 442  0.54 Not Removed
- ** Low Diagonal of genotype 443  0.51 Not Removed
- ** Low Diagonal of genotype 444  0.56 Not Removed
- ** Low Diagonal of genotype 445  0.51 Not Removed
- ** Low Diagonal of genotype 446  0.57 Not Removed
- ** Low Diagonal of genotype 447  0.55 Not Removed
- ** Low Diagonal of genotype 448  0.54 Not Removed
- ** Low Diagonal of genotype 449  0.55 Not Removed
- ** Low Diagonal of genotype 450  0.54 Not Removed
- ** Low Diagonal of genotype 451  0.59 Not Removed
- ** Low Diagonal of genotype 452  0.54 Not Removed
- ** Low Diagonal of genotype 453  0.54 Not Removed
- ** Low Diagonal of genotype 454  0.54 Not Removed
- ** Low Diagonal of genotype 455  0.56 Not Removed
- ** Low Diagonal of genotype 456  0.56 Not Removed
- ** Low Diagonal of genotype 457  0.55 Not Removed
- ** Low Diagonal of genotype 458  0.54 Not Removed
- ** Low Diagonal of genotype 459  0.52 Not Removed
- ** Low Diagonal of genotype 460  0.60 Not Removed
- ** Low Diagonal of genotype 461  0.52 Not Removed
- ** Low Diagonal of genotype 462  0.57 Not Removed
- ** Low Diagonal of genotype 463  0.55 Not Removed
- ** Low Diagonal of genotype 464  0.52 Not Removed
- ** Low Diagonal of genotype 465  0.53 Not Removed
- ** Low Diagonal of genotype 466  0.51 Not Removed
- ** Low Diagonal of genotype 467  0.45 Not Removed
- ** Low Diagonal of genotype 468  0.55 Not Removed
- ** Low Diagonal of genotype 469  0.55 Not Removed
- ** Low Diagonal of genotype 470  0.57 Not Removed
- ** Low Diagonal of genotype 471  0.48 Not Removed
- ** Low Diagonal of genotype 472  0.57 Not Removed
- ** Low Diagonal of genotype 473  0.55 Not Removed
- ** Low Diagonal of genotype 474  0.57 Not Removed
- ** Low Diagonal of genotype 475  0.54 Not Removed
- ** Low Diagonal of genotype 476  0.54 Not Removed
- ** Low Diagonal of genotype 477  0.53 Not Removed
- ** Low Diagonal of genotype 478  0.50 Not Removed
- ** Low Diagonal of genotype 479  0.54 Not Removed
- ** Low Diagonal of genotype 480  0.54 Not Removed
- ** Low Diagonal of genotype 481  0.60 Not Removed
- ** Low Diagonal of genotype 482  0.49 Not Removed
- ** Low Diagonal of genotype 483  0.50 Not Removed
- ** Low Diagonal of genotype 484  0.48 Not Removed
- ** Low Diagonal of genotype 485  0.53 Not Removed
- ** Low Diagonal of genotype 486  0.54 Not Removed
- ** Low Diagonal of genotype 487  0.55 Not Removed
- ** Low Diagonal of genotype 488  0.39 Not Removed
- ** Low Diagonal of genotype 489  0.51 Not Removed
- ** Low Diagonal of genotype 490  0.54 Not Removed
- ** Low Diagonal of genotype 491  0.56 Not Removed
- ** Low Diagonal of genotype 492  0.55 Not Removed
- ** Low Diagonal of genotype 493  0.58 Not Removed
- ** Low Diagonal of genotype 494  0.53 Not Removed
- ** Low Diagonal of genotype 495  0.53 Not Removed
- ** Low Diagonal of genotype 496  0.56 Not Removed
- ** Low Diagonal of genotype 497  0.56 Not Removed
- ** Low Diagonal of genotype 498  0.53 Not Removed
- ** Low Diagonal of genotype 499  0.46 Not Removed
- ** Low Diagonal of genotype 500  0.40 Not Removed
- ** Low Diagonal of genotype 501  0.53 Not Removed
- ** Low Diagonal of genotype 502  0.57 Not Removed
- ** Low Diagonal of genotype 503  0.52 Not Removed
- ** Low Diagonal of genotype 504  0.41 Not Removed
- ** Low Diagonal of genotype 505  0.57 Not Removed
- ** Low Diagonal of genotype 506  0.51 Not Removed
- ** Low Diagonal of genotype 507  0.59 Not Removed
- ** Low Diagonal of genotype 508  0.54 Not Removed
- ** Low Diagonal of genotype 509  0.55 Not Removed
- ** Low Diagonal of genotype 510  0.61 Not Removed
- ** Low Diagonal of genotype 511  0.48 Not Removed
- ** Low Diagonal of genotype 512  0.50 Not Removed
- ** Low Diagonal of genotype 513  0.51 Not Removed
- ** Low Diagonal of genotype 514  0.57 Not Removed
- ** Low Diagonal of genotype 515  0.53 Not Removed
- ** Low Diagonal of genotype 516  0.45 Not Removed
- ** Low Diagonal of genotype 517  0.60 Not Removed
- ** Low Diagonal of genotype 518  0.51 Not Removed
- ** Low Diagonal of genotype 519  0.56 Not Removed
- ** Low Diagonal of genotype 520  0.55 Not Removed
- ** Low Diagonal of genotype 521  0.55 Not Removed
- ** Low Diagonal of genotype 522  0.52 Not Removed
- ** Low Diagonal of genotype 523  0.50 Not Removed
- ** Low Diagonal of genotype 524  0.49 Not Removed
- ** Low Diagonal of genotype 525  0.53 Not Removed
- ** Low Diagonal of genotype 526  0.57 Not Removed
- ** Low Diagonal of genotype 527  0.56 Not Removed
- ** Low Diagonal of genotype 528  0.62 Not Removed
- ** Low Diagonal of genotype 529  0.56 Not Removed
- ** Low Diagonal of genotype 530  0.53 Not Removed
- ** Low Diagonal of genotype 531  0.60 Not Removed
- ** Low Diagonal of genotype 532  0.56 Not Removed
- ** Low Diagonal of genotype 533  0.54 Not Removed
- ** Low Diagonal of genotype 534  0.51 Not Removed
- ** Low Diagonal of genotype 535  0.50 Not Removed
- ** Low Diagonal of genotype 536  0.49 Not Removed
- ** Low Diagonal of genotype 537  0.55 Not Removed
- ** Low Diagonal of genotype 538  0.54 Not Removed
- ** Low Diagonal of genotype 539  0.54 Not Removed
- ** Low Diagonal of genotype 540  0.54 Not Removed
- ** Low Diagonal of genotype 541  0.53 Not Removed
- ** Low Diagonal of genotype 542  0.60 Not Removed
- ** Low Diagonal of genotype 543  0.56 Not Removed
- ** Low Diagonal of genotype 544  0.56 Not Removed
- ** Low Diagonal of genotype 545  0.56 Not Removed
- ** Low Diagonal of genotype 546  0.61 Not Removed
- ** Low Diagonal of genotype 547  0.50 Not Removed
- ** Low Diagonal of genotype 548  0.45 Not Removed
- ** Low Diagonal of genotype 549  0.56 Not Removed
- ** Low Diagonal of genotype 550  0.54 Not Removed
- ** Low Diagonal of genotype 551  0.52 Not Removed
- ** Low Diagonal of genotype 552  0.61 Not Removed
- ** Low Diagonal of genotype 553  0.57 Not Removed
- ** Low Diagonal of genotype 554  0.54 Not Removed
- ** Low Diagonal of genotype 555  0.33 Not Removed
- ** Low Diagonal of genotype 556  0.55 Not Removed
- ** Low Diagonal of genotype 557  0.55 Not Removed
- ** Low Diagonal of genotype 558  0.59 Not Removed
- ** Low Diagonal of genotype 559  0.50 Not Removed
- ** Low Diagonal of genotype 560  0.54 Not Removed
- ** Low Diagonal of genotype 561  0.53 Not Removed
- ** Low Diagonal of genotype 562  0.55 Not Removed
- ** Low Diagonal of genotype 563  0.55 Not Removed
- ** Low Diagonal of genotype 564  0.55 Not Removed
- ** Low Diagonal of genotype 565  0.53 Not Removed
- ** Low Diagonal of genotype 566  0.53 Not Removed
- ** Low Diagonal of genotype 567  0.55 Not Removed
- ** Low Diagonal of genotype 568  0.55 Not Removed
- ** Low Diagonal of genotype 569  0.53 Not Removed
- ** Low Diagonal of genotype 570  0.57 Not Removed
- ** Low Diagonal of genotype 571  0.47 Not Removed
- ** Low Diagonal of genotype 572  0.51 Not Removed
- ** Low Diagonal of genotype 573  0.51 Not Removed
- ** Low Diagonal of genotype 574  0.51 Not Removed
- ** Low Diagonal of genotype 575  0.53 Not Removed
- ** Low Diagonal of genotype 576  0.52 Not Removed
- ** Low Diagonal of genotype 577  0.54 Not Removed
- ** Low Diagonal of genotype 578  0.51 Not Removed
- ** Low Diagonal of genotype 579  0.55 Not Removed
- ** Low Diagonal of genotype 580  0.53 Not Removed
- ** Low Diagonal of genotype 581  0.53 Not Removed
- ** Low Diagonal of genotype 582  0.54 Not Removed
- ** Low Diagonal of genotype 583  0.46 Not Removed
- ** Low Diagonal of genotype 584  0.31 Not Removed
- ** Low Diagonal of genotype 585  0.56 Not Removed
- ** Low Diagonal of genotype 586  0.52 Not Removed
- ** Low Diagonal of genotype 587  0.51 Not Removed
- ** Low Diagonal of genotype 588  0.51 Not Removed
- ** Low Diagonal of genotype 589  0.55 Not Removed
- ** Low Diagonal of genotype 590  0.57 Not Removed
- ** Low Diagonal of genotype 591  0.53 Not Removed
- ** Low Diagonal of genotype 592  0.57 Not Removed
- ** Low Diagonal of genotype 593  0.56 Not Removed
- ** Low Diagonal of genotype 594  0.56 Not Removed
- ** Low Diagonal of genotype 595  0.53 Not Removed
- ** Low Diagonal of genotype 596  0.60 Not Removed
- ** Low Diagonal of genotype 597  0.54 Not Removed
- ** Low Diagonal of genotype 598  0.47 Not Removed
- ** Low Diagonal of genotype 599  0.55 Not Removed
- ** Low Diagonal of genotype 600  0.50 Not Removed
- ** Low Diagonal of genotype 601  0.53 Not Removed
- ** Low Diagonal of genotype 602  0.57 Not Removed
- ** Low Diagonal of genotype 603  0.56 Not Removed
- ** Low Diagonal of genotype 604  0.57 Not Removed
- ** Low Diagonal of genotype 605  0.54 Not Removed
- ** Low Diagonal of genotype 606  0.44 Not Removed
- ** Low Diagonal of genotype 607  0.49 Not Removed
- ** Low Diagonal of genotype 608  0.20 Not Removed
- ** Low Diagonal of genotype 609  0.54 Not Removed
- ** Low Diagonal of genotype 610  0.50 Not Removed
- ** Low Diagonal of genotype 611  0.52 Not Removed
- ** Low Diagonal of genotype 612  0.55 Not Removed
- ** Low Diagonal of genotype 613  0.55 Not Removed
- ** Low Diagonal of genotype 614  0.55 Not Removed
- ** Low Diagonal of genotype 615  0.54 Not Removed
- ** Low Diagonal of genotype 616  0.52 Not Removed
- ** Low Diagonal of genotype 617  0.57 Not Removed
- ** Low Diagonal of genotype 618  0.56 Not Removed
- ** Low Diagonal of genotype 619  0.51 Not Removed
- ** Low Diagonal of genotype 620  0.53 Not Removed
- ** Low Diagonal of genotype 621  0.12 Not Removed
- ** Low Diagonal of genotype 622  0.52 Not Removed
- ** Low Diagonal of genotype 623  0.58 Not Removed
- ** Low Diagonal of genotype 624  0.53 Not Removed
- ** Low Diagonal of genotype 625  0.54 Not Removed
- ** Low Diagonal of genotype 626  0.54 Not Removed
- ** Low Diagonal of genotype 627  0.56 Not Removed
- ** Low Diagonal of genotype 628  0.52 Not Removed
- ** Low Diagonal of genotype 629  0.55 Not Removed
- ** Low Diagonal of genotype 630  0.38 Not Removed
- ** Low Diagonal of genotype 631  0.57 Not Removed
- ** Low Diagonal of genotype 632  0.53 Not Removed
- ** Low Diagonal of genotype 633  0.56 Not Removed
- ** Low Diagonal of genotype 634  0.53 Not Removed
- ** Low Diagonal of genotype 635  0.52 Not Removed
- ** Low Diagonal of genotype 636  0.56 Not Removed
- ** Low Diagonal of genotype 637  0.56 Not Removed
- ** Low Diagonal of genotype 638  0.58 Not Removed
- ** Low Diagonal of genotype 639  0.52 Not Removed
- ** Low Diagonal of genotype 640  0.53 Not Removed
- ** Low Diagonal of genotype 641  0.55 Not Removed
- ** Low Diagonal of genotype 642  0.56 Not Removed
- ** Low Diagonal of genotype 643  0.54 Not Removed
- ** Low Diagonal of genotype 644  0.54 Not Removed
- ** Low Diagonal of genotype 645  0.48 Not Removed
- ** Low Diagonal of genotype 646  0.40 Not Removed
- ** Low Diagonal of genotype 647  0.58 Not Removed
- ** Low Diagonal of genotype 648  0.54 Not Removed
- ** Low Diagonal of genotype 649  0.58 Not Removed
- ** Low Diagonal of genotype 650  0.57 Not Removed
- ** Low Diagonal of genotype 651  0.53 Not Removed
- ** Low Diagonal of genotype 652  0.59 Not Removed
- ** Low Diagonal of genotype 653  0.51 Not Removed
- ** Low Diagonal of genotype 654  0.51 Not Removed
- ** Low Diagonal of genotype 655  0.50 Not Removed
- ** Low Diagonal of genotype 656  0.51 Not Removed
- ** Low Diagonal of genotype 657  0.53 Not Removed
- ** Low Diagonal of genotype 658  0.50 Not Removed
- ** Low Diagonal of genotype 659  0.53 Not Removed
- ** Low Diagonal of genotype 660  0.52 Not Removed
- ** Low Diagonal of genotype 661  0.55 Not Removed
- ** Low Diagonal of genotype 662  0.56 Not Removed
- ** Low Diagonal of genotype 663  0.55 Not Removed
- ** Low Diagonal of genotype 664  0.55 Not Removed
- ** Low Diagonal of genotype 665  0.53 Not Removed
- ** Low Diagonal of genotype 666  0.46 Not Removed
- ** Low Diagonal of genotype 667  0.42 Not Removed
- ** Low Diagonal of genotype 668  0.58 Not Removed
- ** Low Diagonal of genotype 669  0.51 Not Removed
- ** Low Diagonal of genotype 670  0.51 Not Removed
- ** Low Diagonal of genotype 671  0.53 Not Removed
- ** Low Diagonal of genotype 672  0.55 Not Removed
- ** Low Diagonal of genotype 673  0.57 Not Removed
- ** Low Diagonal of genotype 674  0.53 Not Removed
- ** Low Diagonal of genotype 675  0.56 Not Removed
- ** Low Diagonal of genotype 676  0.52 Not Removed
- ** Low Diagonal of genotype 677  0.58 Not Removed
- ** Low Diagonal of genotype 678  0.54 Not Removed
- ** Low Diagonal of genotype 679  0.36 Not Removed
- ** Low Diagonal of genotype 680  0.33 Not Removed
- ** Low Diagonal of genotype 681  0.33 Not Removed
- ** Low Diagonal of genotype 682  0.48 Not Removed
- ** Low Diagonal of genotype 683  0.59 Not Removed
- ** Low Diagonal of genotype 684  0.57 Not Removed
- ** Low Diagonal of genotype 685  0.42 Not Removed
- ** Low Diagonal of genotype 686  0.49 Not Removed
- ** Low Diagonal of genotype 687  0.57 Not Removed
- ** Low Diagonal of genotype 688  0.44 Not Removed
- ** Low Diagonal of genotype 689  0.58 Not Removed
- ** Low Diagonal of genotype 690  0.36 Not Removed
- ** Low Diagonal of genotype 691  0.55 Not Removed
- ** Low Diagonal of genotype 692  0.56 Not Removed
- ** Low Diagonal of genotype 693  0.57 Not Removed
- ** Low Diagonal of genotype 694  0.43 Not Removed
- ** Low Diagonal of genotype 695  0.48 Not Removed
- ** Low Diagonal of genotype 696  0.47 Not Removed
- ** Low Diagonal of genotype 697  0.55 Not Removed
- ** Low Diagonal of genotype 698  0.45 Not Removed
- ** Low Diagonal of genotype 699  0.32 Not Removed
- ** Low Diagonal of genotype 700  0.51 Not Removed
- ** Low Diagonal of genotype 701  0.47 Not Removed
- ** Low Diagonal of genotype 702  0.37 Not Removed
- ** Low Diagonal of genotype 703  0.32 Not Removed
- ** Low Diagonal of genotype 704  0.51 Not Removed
- ** Low Diagonal of genotype 705  0.35 Not Removed
- ** Low Diagonal of genotype 706  0.53 Not Removed
- ** Low Diagonal of genotype 707  0.56 Not Removed
- ** Low Diagonal of genotype 708  0.38 Not Removed
- ** Low Diagonal of genotype 709  0.56 Not Removed
- ** Low Diagonal of genotype 710  0.64 Not Removed
- ** Low Diagonal of genotype 711  0.55 Not Removed
- ** Low Diagonal of genotype 712  0.52 Not Removed
- ** Low Diagonal of genotype 713  0.51 Not Removed
- ** Low Diagonal of genotype 714  0.35 Not Removed
- ** Low Diagonal of genotype 715  0.57 Not Removed
- ** Low Diagonal of genotype 716  0.29 Not Removed
- ** Low Diagonal of genotype 717  0.54 Not Removed
- ** Low Diagonal of genotype 718  0.48 Not Removed
- ** Low Diagonal of genotype 719  0.47 Not Removed
- ** Low Diagonal of genotype 720  0.49 Not Removed
- ** Low Diagonal of genotype 721  0.53 Not Removed
- ** Low Diagonal of genotype 722  0.50 Not Removed
- ** Low Diagonal of genotype 723  0.49 Not Removed
- ** Low Diagonal of genotype 724  0.53 Not Removed
- ** Low Diagonal of genotype 725  0.42 Not Removed
- ** Low Diagonal of genotype 726  0.40 Not Removed
- ** Low Diagonal of genotype 727  0.55 Not Removed
- ** Low Diagonal of genotype 728  0.30 Not Removed
- ** Low Diagonal of genotype 729  0.43 Not Removed
- ** Low Diagonal of genotype 730  0.51 Not Removed
- ** Low Diagonal of genotype 731  0.52 Not Removed
- ** Low Diagonal of genotype 732  0.48 Not Removed
- ** Low Diagonal of genotype 733  0.52 Not Removed
- ** Low Diagonal of genotype 734  0.55 Not Removed
- ** Low Diagonal of genotype 735  0.54 Not Removed
- ** Low Diagonal of genotype 736  0.52 Not Removed
- ** Low Diagonal of genotype 737  0.49 Not Removed
- ** Low Diagonal of genotype 738  0.50 Not Removed
- ** Low Diagonal of genotype 739  0.56 Not Removed
- ** Low Diagonal of genotype 740  0.40 Not Removed
- ** Low Diagonal of genotype 741  0.47 Not Removed
- ** Low Diagonal of genotype 742  0.48 Not Removed
- ** Low Diagonal of genotype 743  0.52 Not Removed
- ** Low Diagonal of genotype 744  0.55 Not Removed
- ** Low Diagonal of genotype 745  0.54 Not Removed
- ** Low Diagonal of genotype 746  0.55 Not Removed
- ** Low Diagonal of genotype 747  0.54 Not Removed
- ** Low Diagonal of genotype 748  0.55 Not Removed
- ** Low Diagonal of genotype 749  0.37 Not Removed
- ** Low Diagonal of genotype 750  0.56 Not Removed
- ** Low Diagonal of genotype 751  0.47 Not Removed
- ** Low Diagonal of genotype 752  0.52 Not Removed
- ** Low Diagonal of genotype 753  0.41 Not Removed
- ** Low Diagonal of genotype 754  0.54 Not Removed
- ** Low Diagonal of genotype 755  0.57 Not Removed
- ** Low Diagonal of genotype 756  0.55 Not Removed
- ** Low Diagonal of genotype 757  0.51 Not Removed
- ** Low Diagonal of genotype 758  0.52 Not Removed
- ** Low Diagonal of genotype 759  0.54 Not Removed
- ** Low Diagonal of genotype 760  0.55 Not Removed
- ** Low Diagonal of genotype 761  0.41 Not Removed
- ** Low Diagonal of genotype 762  0.42 Not Removed
- ** Low Diagonal of genotype 763  0.12 Not Removed
- ** Low Diagonal of genotype 764  0.52 Not Removed
- ** Low Diagonal of genotype 765  0.54 Not Removed
- ** Low Diagonal of genotype 766  0.56 Not Removed
- ** Low Diagonal of genotype 767  0.55 Not Removed
- ** Low Diagonal of genotype 768  0.58 Not Removed
- ** Low Diagonal of genotype 769  0.58 Not Removed
- ** Low Diagonal of genotype 770  0.53 Not Removed
- ** Low Diagonal of genotype 771  0.52 Not Removed
- ** Low Diagonal of genotype 772  0.49 Not Removed
- ** Low Diagonal of genotype 773  0.36 Not Removed
- ** Low Diagonal of genotype 774  0.37 Not Removed
- ** Low Diagonal of genotype 775  0.32 Not Removed
- ** Low Diagonal of genotype 776  0.51 Not Removed
- ** Low Diagonal of genotype 777  0.56 Not Removed
- ** Low Diagonal of genotype 778  0.60 Not Removed
- ** Low Diagonal of genotype 779  0.62 Not Removed
- ** Low Diagonal of genotype 780  0.47 Not Removed
- ** Low Diagonal of genotype 781  0.55 Not Removed
- ** Low Diagonal of genotype 782  0.50 Not Removed
- ** Low Diagonal of genotype 783  0.32 Not Removed
- ** Low Diagonal of genotype 784  0.46 Not Removed
- ** Low Diagonal of genotype 785  0.44 Not Removed
- ** Low Diagonal of genotype 786  0.55 Not Removed
- ** Low Diagonal of genotype 787  0.55 Not Removed
- ** Low Diagonal of genotype 788  0.54 Not Removed
- ** Low Diagonal of genotype 789  0.52 Not Removed
- ** Low Diagonal of genotype 790  0.58 Not Removed
- ** Low Diagonal of genotype 791  0.19 Not Removed
- ** Low Diagonal of genotype 792  0.24 Not Removed
- ** Low Diagonal of genotype 793  0.46 Not Removed
- ** Low Diagonal of genotype 794  0.55 Not Removed
- ** Low Diagonal of genotype 795  0.12 Not Removed
- ** Low Diagonal of genotype 796  0.59 Not Removed
- ** Low Diagonal of genotype 797  0.50 Not Removed
- ** Low Diagonal of genotype 798  0.61 Not Removed
- ** Low Diagonal of genotype 799  0.44 Not Removed
- ** Low Diagonal of genotype 800  0.34 Not Removed
- ** Low Diagonal of genotype 801  0.54 Not Removed
- ** Low Diagonal of genotype 802  0.58 Not Removed
- ** Low Diagonal of genotype 803  0.51 Not Removed
- ** Low Diagonal of genotype 804  0.52 Not Removed
- ** Low Diagonal of genotype 805  0.54 Not Removed
- ** Low Diagonal of genotype 806  0.59 Not Removed
-
- Check for diagonal of genomic relationship matrix, genotypes not removed: 805
 
  ------------------------------
   Final Pedigree-Based Matrix 
@@ -997,44 +94,8 @@ Read 806 additive pedigrees
      Off-diagonal          648830     0.000     0.000     0.000     0.000
  
 
- ----------------------
-  Final Genomic Matrix 
- ----------------------
- 
- Statistic of Genomic Matrix
-                                N      Mean       Min       Max       Var
-     Diagonal                 806     0.515     0.010     8.192     0.082
-     Off-diagonal          648830    -0.000    -0.936     1.698     0.001
- 
-
- Correlation of Genomic Inbreeding and Pedigree Inbreeding
-     Correlation:     0.0000
- 
- Diagonal elements
-    Estimating Regression Coefficients G = b0 11' + b1 A + e
-    Regression coefficients b0 b1 =   Infinity -Infinity
-
-    Correlation diagonal elements G & A -Infinity
- 
- All elements - Diagonal / Off-Diagonal
-    Estimating Regression Coefficients G = b0 11' + b1 A + e
-    Regression coefficients b0 b1 =     -0.000     0.515
-
-    Correlation all elements G & A     0.516
- 
- Off-Diagonal
-    Using 0 elements from A22 >= .02000
-
-    NO ELEMENTS to estimate statistics !!!
-
-    Estimating Regression Coefficients G = b0 11' + b1 A + e
-    Regression coefficients b0 b1 =      0.000     0.000
-
-    Correlation Off-Diagonal elements G & A     0.000
- 
-
  Creating A22-inverse 
-    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.2216
+    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.1107
 
  ----------------------
   Final A22 Inv Matrix 
@@ -1045,9 +106,8 @@ Read 806 additive pedigrees
      Diagonal                 806     1.000     1.000     1.000     0.000
      Off-diagonal          648830     0.000     0.000     0.000     0.000
  
- 
- Creating G-inverse 
-    Inverse LAPACK MKL dpotrf/i  #threads=    1    4 Elapsed omp_get_time:     0.6949
+ Reading G-inverse from file: "../pregs_gbs/Gi"
+                325221 elements read from: ../pregs_gbs/Gi
 
  --------------------------
   Final Genomic Inv Matrix 
@@ -1058,9 +118,6 @@ Read 806 additive pedigrees
      Diagonal                 806     4.685     0.628   100.000    87.061
      Off-diagonal          648830     0.110    -9.870    10.693     0.010
  
- 
- Saving G-inverse in file: "Gi"
-       elapsed time=    22.0
 
  Check for diagonal of Inverse Genomic - Inverse of pedigree relationship matrix
 
@@ -1078,7 +135,7 @@ Read 806 additive pedigrees
  
 
 *--------------------------------------------------*
-* Setup Genomic Done !!!, elapsed time:     78.589 *
+* Setup Genomic Done !!!, elapsed time:      3.575 *
 *--------------------------------------------------*
 
  wGimA22i   1.00000000000000     
@@ -1095,7 +152,7 @@ hash matrix increased from           65536 to          131072 % filled:     0.80
 hash matrix increased from          131072 to          262144 % filled:     0.8000
 hash matrix increased from          262144 to          524288 % filled:     0.8000
 
-finished peds (VCE) in 77.36 s,  325844 nonzeroes
+finished peds (VCE) in 10.45 s,  325844 nonzeroes
 
  
  *** Advise: running BLUPF90+ --dense might speed up computations
@@ -1119,109 +176,429 @@ finished peds (VCE) in 77.36 s,  325844 nonzeroes
       NO. OF CALLS SPARS SOLV =                        0
       NO. OF CALLS DET / LDET =                        1
       NO. OF CALLS SPARS INV  =                        1
-      TOTAL CPU TIME IN FSPAK =                 2.484375
-      TIME FOR FINDING ORDER  =                 0.031250
-      TIME FOR SYMBOLIC FAC   =                 0.531250
-      TIME FOR NUMERICAL FAC  =                 0.343750
-      TIME FOR SOLVE          =                 0.062500
+      TOTAL CPU TIME IN FSPAK =                 2.171875
+      TIME FOR FINDING ORDER  =                 0.000000
+      TIME FOR SYMBOLIC FAC   =                 0.656250
+      TIME FOR NUMERICAL FAC  =                 0.187500
+      TIME FOR SOLVE          =                 0.000000
       TIME FOR SPARSE SOLVE   =                 0.000000
-      TIME FOR SPARSE INVERSE =                 1.468750
+      TIME FOR SPARSE INVERSE =                 1.328125
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6721.23668292652       : AIC =    6725.23668292652     
-  In round            1  convergence=  0.182104023520764     
-  delta convergence=   63.7344998160501     
+ -2logL =    7077.56636421893       : AIC =    7081.56636421893     
+  In round            1  convergence=   1.39648902404083     
+  delta convergence=   76.7747611719329     
  new R
-   153.03    
+   199.38    
  new G
-   174.44    
- * START ITERATION: 11-18-2023  13h 36m 17s 190
+   45.835    
+ * START ITERATION: 11-21-2023  21h 32m 10s 445
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6396.20337585894       : AIC =    6400.20337585894     
-  In round            2  convergence=  0.118778198843445     
-  delta convergence=   66.7261815074131     
+ -2logL =    6565.51413296813       : AIC =    6569.51413296813     
+  In round            2  convergence=  1.244339857253432E-003
+  delta convergence=   53.8285865938534     
  new R
-   194.75    
+   305.48    
  new G
-   266.17    
+   44.273    
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6323.09964968119       : AIC =    6327.09964968119     
-  In round            3  convergence=  3.722814324355664E-002
-  delta convergence=   38.1420300763553     
+ -2logL =    6420.46897400404       : AIC =    6424.46897400404     
+  In round            3  convergence=  1.222494250280161E-002
+  delta convergence=   32.4211609370318     
  new R
-   207.39    
+   365.91    
  new G
-   329.81    
+   39.866    
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6316.18397603508       : AIC =    6320.18397603508     
-  In round            4  convergence=  1.351738933012066E-003
-  delta convergence=   6.63574089816330     
+ -2logL =    6404.61891177846       : AIC =    6408.61891177846     
+  In round            4  convergence=  2.119928274778499E-002
+  delta convergence=   9.04743528949774     
  new R
-   208.08    
+   378.94    
  new G
-   342.40    
+   34.799    
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6316.07683972230       : AIC =    6320.07683972230     
-  In round            5  convergence=  6.797864654614778E-007
-  delta convergence=  0.239710269050913     
+ -2logL =    6403.40203092097       : AIC =    6407.40203092097     
+  In round            5  convergence=  2.346378516080975E-002
+  delta convergence=   3.11049016313998     
  new R
-   208.28    
+   380.54    
  new G
-   342.12    
+   30.176    
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6316.07677921888       : AIC =    6320.07677921888     
-  In round            6  convergence=  1.017996706658812E-008
-  delta convergence=  2.342638619216491E-002
+ -2logL =    6402.60696428049       : AIC =    6406.60696428049     
+  In round            6  convergence=  2.392955407582937E-002
+  delta convergence=   2.59020795236541     
  new R
-   208.26    
+   381.68    
  new G
-   342.15    
+   26.134    
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6316.07677897525       : AIC =    6320.07677897525     
-  In round            7  convergence=  8.327654765297463E-011
-  delta convergence=  2.121518068335426E-003
+ -2logL =    6401.92138671469       : AIC =    6405.92138671469     
+  In round            7  convergence=  2.429939328161195E-002
+  delta convergence=   2.26795817458999     
  new R
-   208.26    
+   382.69    
  new G
-   342.15    
+   22.609    
 quadr_ija: OpenMP threads=  1  4    325221 OMP= F
- -2logL =    6316.07677897336       : AIC =    6320.07677897336     
-  In round            8  convergence=  6.842211795948804E-013
-  delta convergence=  1.922901710841804E-004
+ -2logL =    6401.33283782884       : AIC =    6405.33283782884     
+  In round            8  convergence=  2.463437720073478E-002
+  delta convergence=   1.98220184815925     
  new R
-   208.26    
+   383.59    
  new G
-   342.15    
- * END ITERATION: 11-18-2023  13h 36m 38s 791
+   19.542    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6400.82884036509       : AIC =    6404.82884036509     
+  In round            9  convergence=  2.494895881963983E-002
+  delta convergence=   1.73011003694741     
+ new R
+   384.38    
+ new G
+   16.876    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6400.39804385994       : AIC =    6404.39804385994     
+  In round           10  convergence=  2.525975736918697E-002
+  delta convergence=   1.50851377577486     
+ new R
+   385.08    
+ new G
+   14.562    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6400.03026913440       : AIC =    6404.03026913440     
+  In round           11  convergence=  2.558473070993265E-002
+  delta convergence=   1.31430220881386     
+ new R
+   385.71    
+ new G
+   12.554    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6399.71650559067       : AIC =    6403.71650559067     
+  In round           12  convergence=  2.594251841572929E-002
+  delta convergence=   1.14448603414891     
+ new R
+   386.25    
+ new G
+   10.813    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6399.44886836880       : AIC =    6403.44886836880     
+  In round           13  convergence=  2.635194370858962E-002
+  delta convergence=  0.996248825376302     
+ new R
+   386.74    
+ new G
+   9.3024    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6399.22052589113       : AIC =    6403.22052589113     
+  In round           14  convergence=  2.683172792953848E-002
+  delta convergence=  0.866983854332182     
+ new R
+   387.16    
+ new G
+   7.9931    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6399.02560819325       : AIC =    6403.02560819325     
+  In round           15  convergence=  2.740043499909818E-002
+  delta convergence=  0.754316480011263     
+ new R
+   387.53    
+ new G
+   6.8579    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.85910530681       : AIC =    6402.85910530681     
+  In round           16  convergence=  2.807663504005354E-002
+  delta convergence=  0.656113410200990     
+ new R
+   387.86    
+ new G
+   5.8737    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.71676323348       : AIC =    6402.71676323348     
+  In round           17  convergence=  2.887926100920312E-002
+  delta convergence=  0.570481010958251     
+ new R
+   388.15    
+ new G
+   5.0205    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.59498309914       : AIC =    6402.59498309914     
+  In round           18  convergence=  2.982813024947147E-002
+  delta convergence=  0.495755259969200     
+ new R
+   388.40    
+ new G
+   4.2811    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.49072722000       : AIC =    6402.49072722000     
+  In round           19  convergence=  3.094461152141470E-002
+  delta convergence=  0.430485954936699     
+ new R
+   388.62    
+ new G
+   3.6407    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.40143422154       : AIC =    6402.40143422154     
+  In round           20  convergence=  3.225243367916875E-002
+  delta convergence=  0.373417510262338     
+ new R
+   388.81    
+ new G
+   3.0864    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.32494411664       : AIC =    6402.32494411664     
+  In round           21  convergence=  3.377865199273688E-002
+  delta convergence=  0.323468240160630     
+ new R
+   388.98    
+ new G
+   2.6072    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.25943337496       : AIC =    6402.25943337496     
+  In round           22  convergence=  3.555481112119967E-002
+  delta convergence=  0.279709546641849     
+ new R
+   389.13    
+ new G
+   2.1936    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.20335944894       : AIC =    6402.20335944894     
+  In round           23  convergence=  3.761837055692038E-002
+  delta convergence=  0.241345983265396     
+ new R
+   389.25    
+ new G
+   1.8373    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.15541390691       : AIC =    6402.15541390691     
+  In round           24  convergence=  4.001449196936915E-002
+  delta convergence=  0.207696793639924     
+ new R
+   389.36    
+ new G
+   1.5310    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.11448317560       : AIC =    6402.11448317560     
+  In round           25  convergence=  4.279833265492508E-002
+  delta convergence=  0.178179237240749     
+ new R
+   389.46    
+ new G
+   1.2686    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.07961587995       : AIC =    6402.07961587995     
+  In round           26  convergence=  4.603805303798744E-002
+  delta convergence=  0.152293811207554     
+ new R
+   389.54    
+ new G
+   1.0445    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.04999580629       : AIC =    6402.04999580629     
+  In round           27  convergence=  4.981884085994199E-002
+  delta convergence=  0.129611342258838     
+ new R
+   389.61    
+ new G
+  0.85388    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.02491961532       : AIC =    6402.02491961532     
+  In round           28  convergence=  5.424839882573073E-002
+  delta convergence=  0.109761839932836     
+ new R
+   389.66    
+ new G
+  0.69257    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6398.00377852154       : AIC =    6402.00377852154     
+  In round           29  convergence=  5.946456962991211E-002
+  delta convergence=  9.242495958947286E-002
+ new R
+   389.71    
+ new G
+  0.55679    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.98604327202       : AIC =    6401.98604327202     
+  In round           30  convergence=  6.564613552132871E-002
+  delta convergence=  7.732190465418123E-002
+ new R
+   389.75    
+ new G
+  0.44323    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.97125185158       : AIC =    6401.97125185158     
+  In round           31  convergence=  7.302842936224825E-002
+  delta convergence=  6.420859720934774E-002
+ new R
+   389.79    
+ new G
+  0.34893    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.95899943255       : AIC =    6401.95899943255     
+  In round           32  convergence=  8.192640761740126E-002
+  delta convergence=  5.286995344500237E-002
+ new R
+   389.82    
+ new G
+  0.27129    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.94893016755       : AIC =    6401.94893016755     
+  In round           33  convergence=  9.276960520028976E-002
+  delta convergence=  4.311511449121525E-002
+ new R
+   389.84    
+ new G
+  0.20795    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.94073048675       : AIC =    6401.94073048675     
+  In round           34  convergence=  0.106156589315470     
+  delta convergence=  3.477349810499505E-002
+ new R
+   389.86    
+ new G
+  0.15685    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.93412362327       : AIC =    6401.93412362327     
+  In round           35  convergence=  0.122942534468164     
+  delta convergence=  2.769155262420412E-002
+ new R
+   389.87    
+ new G
+  0.11613    
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.92886513109       : AIC =    6401.92886513109     
+  In round           36  convergence=  0.144385356158180     
+  delta convergence=  2.173010902686327E-002
+ new R
+   389.88    
+ new G
+  0.84151E-01
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.92473920696       : AIC =    6401.92473920696     
+  In round           37  convergence=  0.172400320087822     
+  delta convergence=  1.676224063875415E-002
+ new R
+   389.89    
+ new G
+  0.59462E-01
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.92155565279       : AIC =    6401.92155565279     
+  In round           38  convergence=  0.210027036503939     
+  delta convergence=  1.267155170211134E-002
+ new R
+   389.90    
+ new G
+  0.40775E-01
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91914734912       : AIC =    6401.91914734912     
+  In round           39  convergence=  0.262340993718730     
+  delta convergence=  9.350826818226939E-003
+ new R
+   389.90    
+ new G
+  0.26964E-01
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91736812927       : AIC =    6401.91736812927     
+  In round           40  convergence=  0.338375232428218     
+  delta convergence=  6.700981940150964E-003
+ new R
+   389.91    
+ new G
+  0.17048E-01
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91609096351       : AIC =    6401.91609096351     
+  In round           41  convergence=  0.455589104398167     
+  delta convergence=  4.630265796161598E-003
+ new R
+   389.91    
+ new G
+  0.10178E-01
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91520638046       : AIC =    6401.91520638046     
+  In round           42  convergence=  0.651700337606288     
+  delta convergence=  3.053668138791282E-003
+ new R
+   389.91    
+ new G
+  0.56316E-02
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91462106409       : AIC =    6401.91462106409     
+  In round           43  convergence=   1.02223870880651     
+  delta convergence=  1.892495280986219E-003
+ new R
+   389.91    
+ new G
+  0.28003E-02
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91425657920       : AIC =    6401.91425657920     
+  In round           44  convergence=   1.87758192958942     
+  delta convergence=  1.074081318282803E-003
+ new R
+   389.91    
+ new G
+  0.11814E-02
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91404818518       : AIC =    6401.91404818518     
+  In round           45  convergence=   4.81690152344044     
+  delta convergence=  5.316018933626470E-004
+ new R
+   389.91    
+ new G
+  0.36981E-03
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91394370817       : AIC =    6401.91394370817     
+  In round           46  convergence=   42.2144074711133     
+  delta convergence=  2.039416158033617E-004
+ new R
+   389.91    
+ new G
+  0.49326E-04
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91390245488       : AIC =    6401.91390245488     
+  In round           47  convergence=  5.624209563369740E-006
+  delta convergence=  1.112533763331488E-005
+ new R
+   389.91    
+ new G
+  0.49209E-04
+quadr_ija: OpenMP threads=  1  4    325221 OMP= F
+ -2logL =    6397.91390243979       : AIC =    6401.91390243979     
+  In round           48  convergence=  5.618875396552553E-006
+  delta convergence=  8.021137517474188E-008
+ new R
+   389.91    
+ new G
+  0.49093E-04
+ * END ITERATION: 11-21-2023  21h 33m 17s 968
  solutions and s.e. stored in file: "solutions"
 
 Final Estimates
  Genetic variance(s) for effect  2       
-   342.15    
+  0.49093E-04
  Residual variance(s)
-   208.26    
+   389.91    
  inverse of AI matrix (Sampling Variance)
-   4755.2      -1394.0    
-  -1394.0       690.45    
+  0.18081E-05 -0.81008E-06
+ -0.81008E-06   419.40    
  Correlations from inverse of AI matrix
-   1.0000     -0.76933    
- -0.76933       1.0000    
+   1.0000     -0.29417E-04
+ -0.29417E-04   1.0000    
  SE for G
-   68.958    
+  0.13447E-02
  SE for R
-   26.276    
- Sparse inverse of nrm_inverse, elapsed time:    2.40
+   20.479    
+ Sparse inverse of nrm_inverse, elapsed time:    1.07
   
  Sampling variances of covariances function of random effects (n=10000)
   
 P  - Function: g_2_2_1_1+r_1_1
-  Mean:    550.41    
-  Sample Mean:    549.99    
-  Sample SD:    52.044    
+  Mean:    389.91    
+  Sample Mean:    389.91    
+  Sample SD:    20.451    
   
 h2  - Function: g_2_2_1_1/(g_2_2_1_1+r_1_1)
-  Mean:   0.62162    
-  Sample Mean:   0.61506    
-  Sample SD:   0.75699E-01
- elapsed time  3.1250000E-02
+  Mean:   0.12591E-06
+  Sample Mean:   0.95340E-07
+  Sample SD:   0.34984E-05
+ elapsed time  4.6875000E-02
  *** Statistical Method: VCE                 
- * FINISHED (BLUPF90): 11-18-2023  13h 36m 42s 550
+ * FINISHED (BLUPF90): 11-21-2023  21h 33m 19s 720

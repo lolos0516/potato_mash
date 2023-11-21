@@ -36,9 +36,11 @@ OPTION saveAscii
 #OPTION saveG all
 #OPTION readOrigId
 OPTION saveGOrig
+OPTION saveG
 OPTION saveAinvOrig
 OPTION saveA22InverseOrig
 OPTION saveGInverseOrig
+OPTION saveG
 OPTION skipGimA22i
 #OPTION createGInverse 1
 #OPTION saveA22Inverse
